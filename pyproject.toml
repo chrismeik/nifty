@@ -1,0 +1,5 @@
+[project]
+name = "veratree-os"
+version = "0.1.0"
+description = "Veratree OS — project template for building school data products"
+requires-python = ">=3.11"

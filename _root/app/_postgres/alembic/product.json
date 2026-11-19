@@ -1,0 +1,9 @@
+{
+  "id": "b4a78dbb-43c1-4dfc-aa67-ff80a3a2ebe6",
+  "name": "_root/app/_postgres/alembic",
+  "type": "system",
+  "description": "Alembic migration environment — versioned schema migrations for the platform database",
+  "status": "active",
+  "parents": ["ff7689f1-5ae7-43c0-96fe-3784db4db612"],
+  "children": ["564fa18f-f39e-42ec-9a5a-559beb67c3bb"]
+}

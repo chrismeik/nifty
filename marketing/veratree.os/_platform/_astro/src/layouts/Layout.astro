@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "Veratree — The AI Factory Built on Data, Not Duct Tape",
+  description = "Veratree turns your data into working AI products in days, not months, all on infrastructure you control.",
+} = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav-inner">
+        <a href="/veratreeos" class="nav-logo">
+          <img src="/veratreeos/images/logo_words.png" alt="Veratree" />
+        </a>
+        <nav class="nav-links">
+          <a href="/veratreeos/about">About</a>
+          <a href="/veratreeos/contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>&copy; {new Date().getFullYear()} Veratree. All rights reserved.</p>
+        <nav class="footer-links">
+          <a href="/veratreeos/about">About</a>
+          <a href="/veratreeos/contact">Contact</a>
+          <a href="/veratreeos/privacy">Privacy</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "id": "bcbed92d-978c-48dd-8955-c974dfaf3105",
+  "name": "dialmycalls",
+  "type": "product",
+  "description": "",
+  "status": "active",
+  "parents": ["19f614b2-4cb5-4fa8-8894-e0f3bce2257a"],
+  "children": [],
+  "capabilities": {}
+}

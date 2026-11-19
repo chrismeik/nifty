@@ -1,0 +1,72 @@
+---
+import Layout from '../components/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout
+  title="Terms and Conditions — Nifty Ed Tools"
+  description="Terms and Conditions for Nifty Ed Tools' SMS attendance notification service."
+>
+  <style is:global>
+    @import "../styles/_tokens.css";
+
+    .legal-layout { padding: 3rem 2rem 6rem; }
+    .legal-inner { max-width: 720px; margin: 0 auto; }
+    .legal-inner h1 { font-size: 2rem; font-weight: 800; color: var(--slate-900); margin-bottom: 0.25rem; }
+    .legal-inner .legal-meta { font-size: 0.85rem; color: var(--slate-400); margin-bottom: 2.5rem; }
+    .legal-inner h2 { font-size: 1.1rem; font-weight: 700; color: var(--slate-900); margin: 2rem 0 0.5rem; }
+    .legal-inner p { font-size: 0.95rem; color: var(--slate-600); line-height: 1.75; margin-bottom: 0.75rem; }
+    .legal-inner ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    .legal-inner ul li { font-size: 0.95rem; color: var(--slate-600); line-height: 1.75; }
+    .legal-inner a { color: var(--accent); }
+  </style>
+
+  <Nav />
+
+  <div class="legal-layout">
+    <div class="legal-inner">
+      <h1>Terms and Conditions</h1>
+      <p class="legal-meta">Effective date: October 20, 2026</p>
+
+      <p>These Terms and Conditions ("Terms") govern your use of the SMS attendance notification service provided by Nifty Ed Tools ("we," "us," or "our"). By submitting a form on our website or using our service, you agree to these Terms.</p>
+
+      <h2>1. Service Description</h2>
+      <p>Nifty Ed Tools provides an automated SMS notification service that alerts parents and guardians about their child's school attendance on behalf of participating schools and districts. We also send attendance summaries and milestone messages to support student engagement.</p>
+
+      <h2>2. SMS Messaging Terms</h2>
+      <p>By providing your phone number and submitting a form on our website, you expressly consent to receive recurring automated SMS text messages from Nifty Ed Tools related to student attendance notifications, product demonstrations, and service updates.</p>
+      <ul>
+        <li><strong>Message frequency:</strong> Varies based on student attendance activity and school configuration.</li>
+        <li><strong>Message and data rates may apply</strong> depending on your mobile carrier and plan.</li>
+        <li><strong>To opt out:</strong> Reply <strong>STOP</strong> to any message at any time. You will receive one final confirmation and no further messages will be sent.</li>
+        <li><strong>For help:</strong> Reply <strong>HELP</strong> or email <a href="mailto:info@niftyedtools.com">info@niftyedtools.com</a>.</li>
+      </ul>
+      <p>Consent to receive SMS messages is not a condition of purchasing any goods or services.</p>
+
+      <h2>3. Acceptable Use</h2>
+      <p>You agree to use our service only for its intended purpose — receiving attendance-related SMS notifications. You may not use our service to transmit unlawful, harassing, or harmful content.</p>
+
+      <h2>4. School and District Responsibilities</h2>
+      <p>Schools and districts that integrate with Nifty Ed Tools are responsible for ensuring they have appropriate authorization to share student attendance data with us and that parents have been notified of the SMS notification program in accordance with applicable law, including FERPA.</p>
+
+      <h2>5. Disclaimer of Warranties</h2>
+      <p>Our service is provided "as is" without warranties of any kind, express or implied. We do not guarantee that SMS messages will be delivered without delay or error, as delivery depends on factors outside our control including mobile carrier networks.</p>
+
+      <h2>6. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, Nifty Ed Tools shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of or inability to use our service. Our total liability for any claim related to the service shall not exceed the amount paid by you, if any, for the service in the twelve months preceding the claim.</p>
+
+      <h2>7. Changes to These Terms</h2>
+      <p>We may update these Terms from time to time. The effective date at the top of this page will reflect the most recent revision. Continued use of our service after changes constitutes acceptance of the updated Terms.</p>
+
+      <h2>8. Governing Law</h2>
+      <p>These Terms are governed by the laws of the State of Kansas, without regard to its conflict of law provisions.</p>
+
+      <h2>9. Contact Us</h2>
+      <p>If you have questions about these Terms, please contact us at:</p>
+      <p><strong>Nifty Ed Tools</strong><br />
+      <a href="mailto:info@niftyedtools.com">info@niftyedtools.com</a></p>
+    </div>
+  </div>
+
+  <Footer tagline="Ed tech built by educators, for educators. Never a replacement — always an amplifier." />
+</Layout>

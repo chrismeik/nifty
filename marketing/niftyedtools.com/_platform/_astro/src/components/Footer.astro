@@ -1,0 +1,68 @@
+---
+interface Props {
+  tagline?: string;
+}
+const { tagline = "Simple, affordable school tools built for the people in the building." } = Astro.props;
+---
+<product id="a4f3ef6a-666c-4368-9320-b1da43f3ace3">
+<style is:global>
+  /* <product id="a4f3ef6a-666c-4368-9320-b1da43f3ace3"> */
+  .footer {
+    background: var(--slate-950); padding: 2.5rem 1.5rem;
+  }
+  .footer-inner {
+    max-width: 1080px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center;
+  }
+  /* </product> */
+
+  /* <product id="4526d687-21cc-424c-ac29-22b8ee0e390f"> */
+  .footer-logo {
+    display: flex; align-items: center;
+    text-decoration: none;
+  }
+  .footer-logo img { height: 20px; width: auto; display: block; }
+  /* </product> */
+
+  /* <product id="dabf1cea-4a98-4750-9bdc-65d16153ea53"> */
+  .footer-tagline { font-size: 0.82rem; color: var(--slate-500); line-height: 1.6; max-width: 320px; }
+  /* </product> */
+
+  /* <product id="eaefd517-016c-419c-b269-fd9d1a4eadac"> */
+  .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+  .footer-links a {
+    color: var(--slate-500); text-decoration: none;
+    font-size: 0.85rem; transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--slate-300); }
+  /* </product> */
+
+  /* <product id="9b46a066-fe5d-4f3c-a4d4-91980da828b3"> */
+  .footer-copy { font-size: 0.78rem; color: var(--slate-600); border-top: 1px solid var(--slate-800); padding-top: 1.5rem; width: 100%; text-align: center; }
+  /* </product> */
+</style>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <product id="4526d687-21cc-424c-ac29-22b8ee0e390f">
+    <a href="/" class="footer-logo">
+      <img src="/logo_uppercase.png" alt="Nifty" />
+    </a>
+    </product>
+    <product id="dabf1cea-4a98-4750-9bdc-65d16153ea53">
+    <p class="footer-tagline">{tagline}</p>
+    </product>
+    <product id="eaefd517-016c-419c-b269-fd9d1a4eadac">
+    <nav class="footer-links">
+      <a href="/#how-it-works">How It Works</a>
+      <a href="/about">About Us</a>
+      <a href="/attendance">See it in Action →</a>
+      <a href="/demo">Book a Demo</a>
+    </nav>
+    </product>
+    <product id="9b46a066-fe5d-4f3c-a4d4-91980da828b3">
+    <p class="footer-copy">© 2026 Nifty. All rights reserved.</p>
+    </product>
+  </div>
+</footer>
+</product>

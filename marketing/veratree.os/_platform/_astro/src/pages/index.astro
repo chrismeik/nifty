@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const problems = [
+  {
+    label: "Data Silos",
+    heading: "You Have Ten Databases and Zero Single Source of Truth",
+  },
+  {
+    label: "Data Security",
+    heading: "With Scattered Data, You Can Never Really Know if It's Safe",
+  },
+  {
+    label: "Cloud Costs & Vendor Lock-In",
+    heading: "You're Paying More and Owning Less of Your Own Stack",
+  },
+  {
+    label: "Fragile Integrations",
+    heading: "You Spend More Time Patching Integrations Than Building",
+  },
+  {
+    label: "Slow Time to Market",
+    heading: "Your Best Ideas Are Stuck in the Backlog",
+  },
+  {
+    label: "Tribal Knowledge",
+    heading: "Your Systems Only Make Sense to the People Who Built Them",
+  },
+];
+---
+<Layout>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>The AI Factory Built on Data,<br />Not Duct Tape</h1>
+      <p class="hero-sub">
+        Veratree turns your data into working AI products in days, not months —
+        all on infrastructure you own and control.
+      </p>
+      <div class="hero-cta">
+        <a href="/veratreeos/contact" class="btn btn-primary">Get Started</a>
+        <a href="#problems" class="btn btn-secondary">See the Problems We Solve</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problems -->
+  <section class="problems" id="problems">
+    <div class="problems-inner">
+      <p class="section-label">The Problem</p>
+      <h2 class="section-heading">Sound familiar?</h2>
+      <div class="problems-grid">
+        {problems.map((p) => (
+          <div class="problem-card">
+            <p class="problem-label">{p.label}</p>
+            <h3>{p.heading}</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,9 @@
+{
+  "id": "5c8a7b28-6d05-49d2-b224-2f9aca522c9d",
+  "name": "_root/data/_prompts",
+  "type": "system",
+  "description": "Shared engineering prompts — documentation for structure, deployment, endpoints, products",
+  "status": "active",
+  "parents": ["2d07f5be-88b1-45e0-aaab-bb6af7d673c8"],
+  "children": []
+}

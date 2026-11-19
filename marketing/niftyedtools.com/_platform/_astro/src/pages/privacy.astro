@@ -1,0 +1,74 @@
+---
+import Layout from '../components/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout
+  title="Privacy Policy — Nifty Ed Tools"
+  description="Privacy Policy for Nifty Ed Tools, including how we collect, use, and protect information related to our SMS attendance notification service."
+>
+  <style is:global>
+    @import "../styles/_tokens.css";
+
+    .legal-layout { padding: 3rem 2rem 6rem; }
+    .legal-inner { max-width: 720px; margin: 0 auto; }
+    .legal-inner h1 { font-size: 2rem; font-weight: 800; color: var(--slate-900); margin-bottom: 0.25rem; }
+    .legal-inner .legal-meta { font-size: 0.85rem; color: var(--slate-400); margin-bottom: 2.5rem; }
+    .legal-inner h2 { font-size: 1.1rem; font-weight: 700; color: var(--slate-900); margin: 2rem 0 0.5rem; }
+    .legal-inner p { font-size: 0.95rem; color: var(--slate-600); line-height: 1.75; margin-bottom: 0.75rem; }
+    .legal-inner ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    .legal-inner ul li { font-size: 0.95rem; color: var(--slate-600); line-height: 1.75; }
+    .legal-inner a { color: var(--accent); }
+  </style>
+
+  <Nav />
+
+  <div class="legal-layout">
+    <div class="legal-inner">
+      <h1>Privacy Policy</h1>
+      <p class="legal-meta">Effective date: October 20, 2026</p>
+
+      <p>Nifty Ed Tools ("we," "us," or "our") operates an SMS-based school attendance notification service. This Privacy Policy explains what information we collect, how we use it, and your rights regarding that information.</p>
+
+      <h2>1. Information We Collect</h2>
+      <p><strong>From web forms.</strong> When you submit a form on our website, we collect your name, phone number, school district name, and optionally your school email address.</p>
+      <p><strong>From school SIS systems.</strong> We receive student attendance data from a school's Student Information System (SIS) through a secure integration authorized by the school or district. This data includes student names and attendance records used solely to calculate attendance statistics and generate notifications.</p>
+      <p>We do not collect data directly from students or children.</p>
+
+      <h2>2. How We Use Information</h2>
+      <ul>
+        <li>To send SMS attendance notifications to parents and guardians on behalf of their school or district.</li>
+        <li>To calculate attendance statistics for school administrators.</li>
+        <li>To respond to demo or product inquiries submitted through our website.</li>
+      </ul>
+      <p>We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+
+      <h2>3. SMS Communications</h2>
+      <p>By submitting a form on our website, you consent to receive SMS text messages from Nifty Ed Tools. Message frequency varies based on student attendance activity. Message and data rates may apply.</p>
+      <p>To opt out at any time, reply <strong>STOP</strong> to any message you receive from us. After opting out, you will receive one final confirmation message and no further messages will be sent.</p>
+      <p>For help, reply <strong>HELP</strong> to any message or contact us at <a href="mailto:info@niftyedtools.com">info@niftyedtools.com</a>.</p>
+
+      <h2>4. Third-Party Service Providers</h2>
+      <p>We use DialMyCalls as our SMS delivery platform. Phone numbers and message content are transmitted to DialMyCalls solely for the purpose of sending SMS notifications. DialMyCalls is prohibited from using this data for any other purpose. You can review DialMyCalls' privacy policy at <a href="https://www.dialmycalls.com/privacypolicy" target="_blank" rel="noopener">dialmycalls.com/privacypolicy</a>.</p>
+
+      <h2>5. Student Data and FERPA</h2>
+      <p>Student attendance data received from schools is governed by the Family Educational Rights and Privacy Act (FERPA). We act as a school official under FERPA and use student data only to provide the attendance notification service. We do not disclose student records to any unauthorized parties.</p>
+
+      <h2>6. Data Retention</h2>
+      <p>We retain attendance data only as long as necessary to provide the service to the school or district. Web form submissions are retained for the purpose of product communication and deleted upon request. You may request deletion of your information at any time by contacting us.</p>
+
+      <h2>7. Data Security</h2>
+      <p>We implement reasonable technical and organizational measures to protect the information we hold. No method of transmission or storage is 100% secure, but we take appropriate steps to safeguard your data.</p>
+
+      <h2>8. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. The effective date at the top of this page will reflect the most recent revision. Continued use of our service after changes constitutes acceptance of the updated policy.</p>
+
+      <h2>9. Contact Us</h2>
+      <p>If you have questions or requests regarding this Privacy Policy, please contact us at:</p>
+      <p><strong>Nifty Ed Tools</strong><br />
+      <a href="mailto:info@niftyedtools.com">info@niftyedtools.com</a></p>
+    </div>
+  </div>
+
+  <Footer tagline="Ed tech built by educators, for educators. Never a replacement — always an amplifier." />
+</Layout>

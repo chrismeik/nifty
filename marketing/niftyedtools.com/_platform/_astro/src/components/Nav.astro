@@ -1,0 +1,112 @@
+---
+---
+<product id="3d455a54-0382-47ca-8bcc-62459cc989a0">
+<style is:global>
+  /* <product id="3d455a54-0382-47ca-8bcc-62459cc989a0"> */
+  .mnav {
+    position: sticky; top: 0; z-index: 200;
+    background: var(--brand-900); padding: 0 1.5rem;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.08);
+  }
+  .mnav-inner {
+    max-width: 1080px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 62px;
+  }
+  /* </product> */
+
+  /* <product id="21811889-7a0a-4d73-9f0b-fa01813cea40"> */
+  .mnav-logo {
+    display: flex; align-items: center;
+    text-decoration: none; flex-shrink: 0;
+  }
+  .mnav-logo img { height: 24px; width: auto; display: block; }
+  /* </product> */
+
+  /* <product id="12bf92fb-66cd-42d6-87d0-9430a15a647c"> */
+  .mnav-links {
+    display: flex; align-items: center; gap: 2rem;
+  }
+  .mnav-links a {
+    color: rgba(255,255,255,0.82); text-decoration: none;
+    font-size: 0.9rem; font-weight: 500;
+    transition: color 0.15s;
+  }
+  .mnav-links a:hover { color: white; }
+  .mnav-cta {
+    background: var(--accent); color: white;
+    text-decoration: none; padding: 0.4rem 1rem;
+    border-radius: 6px; font-size: 0.85rem; font-weight: 700;
+    transition: background 0.15s; flex-shrink: 0;
+  }
+  .mnav-cta:hover { background: var(--accent-hover); }
+  /* </product> */
+
+  /* <product id="0e587385-e0b5-4865-b652-bbf39cae8151"> */
+  .mnav-mobile-btn {
+    display: none; background: none; border: none; cursor: pointer;
+    padding: 4px; flex-direction: column; gap: 5px;
+  }
+  .mnav-mobile-btn span { display: block; width: 22px; height: 2px; background: white; border-radius: 2px; }
+  .mnav-mobile-menu {
+    display: none; flex-direction: column;
+    background: white; padding: 1rem 1.5rem 1.5rem;
+    gap: 1rem; border-top: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .mnav-mobile-menu a {
+    color: var(--slate-800); text-decoration: none;
+    font-size: 0.95rem; font-weight: 500;
+  }
+  .mnav-mobile-menu a:hover { color: var(--brand-900); }
+  @media (max-width: 720px) {
+    .mnav-cta { display: none; }
+    .mnav-links { display: none; }
+    .mnav-mobile-btn { display: flex; }
+    .mnav-mobile-menu.open { display: flex; }
+  }
+  /* </product> */
+</style>
+
+<nav class="mnav">
+  <div class="mnav-inner">
+    <product id="21811889-7a0a-4d73-9f0b-fa01813cea40">
+    <a href="/" class="mnav-logo">
+      <img src="/logo_uppercase.png" alt="Nifty" />
+    </a>
+    </product>
+    <product id="12bf92fb-66cd-42d6-87d0-9430a15a647c">
+    <div class="mnav-links">
+      <a href="/#how-it-works">How It Works</a>
+      <a href="/quote">Get a Quote</a>
+      <a href="/demo">Book a Demo</a>
+      <a href="/about">About Us</a>
+    </div>
+    </product>
+    <a href="/attendance" class="mnav-cta">See it in Action →</a>
+    <button class="mnav-mobile-btn" id="mnav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <product id="0e587385-e0b5-4865-b652-bbf39cae8151">
+  <div class="mnav-mobile-menu" id="mnav-mobile">
+    <a href="/#how-it-works">How It Works</a>
+    <a href="/quote">Get a Quote</a>
+    <a href="/demo">Book a Demo</a>
+    <a href="/about">About Us</a>
+    <a href="/attendance">See it in Action →</a>
+  </div>
+  </product>
+</nav>
+
+<script>
+  const toggle = document.getElementById('mnav-toggle');
+  const mobileMenu = document.getElementById('mnav-mobile');
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+</script>
+</product>

@@ -1,0 +1,199 @@
+---
+import Layout from '../components/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ProductPageStyles from '../components/ProductPageStyles.astro';
+import SmsCarousel from '../components/SmsCarousel.astro';
+---
+<Layout
+  title="Get a Quote — Nifty Attendance&#8482;"
+  description="Tell us about your school or district and we'll send you custom pricing. No commitment required."
+>
+<product id="c3d8f042-1a56-4b87-e9c2-6f0b7d4e2a18">
+  <style is:global>
+    @import "../styles/_tokens.css";
+
+    .demo-layout { padding: 2.5rem 2rem 5rem; }
+    .demo-inner {
+      max-width: 960px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: start;
+    }
+    .demo-inner > product { display: block; min-width: 0; }
+    @media (max-width: 700px) {
+      .demo-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .demo-form-card {
+      background: white; border: 1px solid var(--slate-200);
+      border-radius: 16px; padding: 2rem;
+      display: flex; flex-direction: column; gap: 1.25rem; min-width: 0;
+    }
+    .demo-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .demo-field label {
+      font-size: 0.8rem; font-weight: 700; color: var(--slate-700);
+      letter-spacing: 0.02em;
+    }
+    .demo-field input, .demo-field select {
+      padding: 0.7rem 1rem; border: 1.5px solid var(--slate-200);
+      border-radius: 8px; font-size: 0.95rem; color: var(--slate-800);
+      transition: border-color 0.15s; width: 100%;
+      background: white; appearance: none;
+    }
+    .demo-field input:focus, .demo-field select:focus { outline: none; border-color: var(--accent); }
+    .demo-field input::placeholder { color: var(--slate-300); }
+    .demo-field .field-hint { font-size: 0.72rem; color: var(--slate-400); margin-top: 0.1rem; }
+    .demo-submit {
+      background: var(--accent); color: white;
+      border: none; border-radius: 8px; padding: 0.9rem 1.5rem;
+      font-size: 1rem; font-weight: 700; cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      box-shadow: 0 4px 14px rgba(249,115,22,0.3);
+    }
+    .demo-submit:hover { background: var(--accent-hover); transform: translateY(-2px); }
+    .demo-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .demo-privacy { font-size: 0.75rem; color: var(--slate-400); text-align: center; line-height: 1.5; }
+    .demo-success {
+      display: none; flex-direction: column; align-items: center;
+      gap: 1rem; text-align: center; padding: 2rem 1rem;
+    }
+    .demo-success-icon {
+      width: 3rem; height: 3rem; border-radius: 50%;
+      background: #ecfdf5; border: 2px solid #10b981;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .demo-success-title { font-size: 1.15rem; font-weight: 800; color: var(--slate-900); }
+    .demo-success-sub { font-size: 0.9rem; color: var(--slate-500); line-height: 1.6; }
+  </style>
+
+  <ProductPageStyles />
+  <Nav />
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <h1>Get pricing for your<br/><span>school or district</span></h1>
+    <p>Tell us a little about your organization and we'll send you a custom quote — no commitment, no pressure. Most schools hear back within one business day.</p>
+  </section>
+
+  <div class="demo-layout">
+    <div class="demo-inner">
+
+      <!-- LEAD FORM -->
+      <div class="demo-form-card">
+        <div id="demo-form-body">
+          <form id="demo-form" onsubmit="handleSubmit(event)">
+            <div style="display:flex;flex-direction:column;gap:1.25rem;">
+              <input type="text" name="website" id="demo-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
+              <div class="demo-field">
+                <label for="demo-name">Your name</label>
+                <input type="text" id="demo-name" name="name" placeholder="Jane Smith" required />
+              </div>
+              <div class="demo-field">
+                <label for="demo-email">School email</label>
+                <input type="email" id="demo-email" name="email" placeholder="jane@springfield.k12.mo.us" required />
+              </div>
+              <div class="demo-field">
+                <label for="demo-phone">Phone number</label>
+                <input type="tel" id="demo-phone" name="phone" placeholder="(555) 000-0000" required />
+              </div>
+              <div class="demo-field">
+                <label for="demo-district">District or school name</label>
+                <input type="text" id="demo-district" name="district" placeholder="Springfield R-XII School District" required />
+              </div>
+              <div class="demo-field">
+                <label for="demo-student-count">Total students</label>
+                <input type="number" id="demo-student-count" name="student_count" placeholder="e.g. 450" min="1" required />
+                <span class="field-hint">Enter the total for your school or district — we price for both.</span>
+              </div>
+              <div class="demo-field">
+                <label for="demo-sis">Current student information system (SIS)</label>
+                <select id="demo-sis" name="sis">
+                  <option value="" disabled selected>Select your SIS…</option>
+                  <option>PowerSchool</option>
+                  <option>Infinite Campus</option>
+                  <option>Skyward</option>
+                  <option>Tyler SIS</option>
+                  <option>Frontline (eSchoolPlus)</option>
+                  <option>Synergy (Edupoint)</option>
+                  <option>Aeries</option>
+                  <option>Alma</option>
+                  <option>Genesis</option>
+                  <option>Gradelink</option>
+                  <option>Other</option>
+                  <option>Unknown</option>
+                </select>
+              </div>
+              <button type="submit" class="demo-submit" id="demo-submit-btn">
+                Request My Quote →
+              </button>
+              <div class="demo-privacy">By submitting, you agree to be contacted by <strong>Nifty Ed Tools</strong> about pricing and our attendance product. View our <a href="/privacy" style="color:inherit;text-decoration:underline;">Privacy Policy</a> and <a href="/terms" style="color:inherit;text-decoration:underline;">Terms and Conditions</a>.</div>
+            </div>
+          </form>
+        </div>
+        <div class="demo-success" id="demo-success">
+          <div class="demo-success-icon">✓</div>
+          <div class="demo-success-title">Quote request received!</div>
+          <div class="demo-success-sub">We'll follow up with custom pricing within one business day. In the meantime, take a look at what Nifty Attendance™ can do.</div>
+        </div>
+      </div>
+
+      <SmsCarousel id="a2e9b731-6c47-4d58-f1a3-9b0e8c5d7f24" title='See Nifty Attendance&#8482; <span>in action</span>' />
+
+    </div>
+  </div>
+
+  <Footer tagline="Ed tech built by educators, for educators. Never a replacement — always an amplifier." />
+
+</product>
+</Layout>
+
+<script is:inline>
+  function formatPhone(e) {
+    const input = e.target;
+    const digits = input.value.replace(/\D/g, '').slice(0, 10);
+    let formatted = digits;
+    if (digits.length > 6)      formatted = '(' + digits.slice(0,3) + ') ' + digits.slice(3,6) + '-' + digits.slice(6);
+    else if (digits.length > 3) formatted = '(' + digits.slice(0,3) + ') ' + digits.slice(3);
+    else if (digits.length > 0) formatted = '(' + digits;
+    input.value = formatted;
+  }
+
+  document.getElementById('demo-phone').addEventListener('input', formatPhone);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const btn  = document.getElementById('demo-submit-btn');
+    const form = document.getElementById('demo-form');
+
+    if (document.getElementById('demo-honeypot').value) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res = await fetch('/api/marketing/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:          data.name,
+          phone_number:  data.phone.replace(/\D/g, ''),
+          district_name: data.district,
+          email:         data.email || null,
+          source:        'quote',
+          sis_name:      data.sis || null,
+          student_count: data.student_count ? parseInt(data.student_count) : null,
+        }),
+      });
+      if (!res.ok) throw new Error(await res.text());
+      document.getElementById('demo-form-body').style.display = 'none';
+      document.getElementById('demo-success').style.display = 'flex';
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Request My Quote →';
+      alert('Something went wrong. Please try again or email us directly.');
+    }
+  }
+</script>

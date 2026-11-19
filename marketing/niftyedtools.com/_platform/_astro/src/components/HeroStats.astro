@@ -1,0 +1,83 @@
+---
+interface Props {
+  id?: string;
+}
+const { id = '' } = Astro.props;
+---
+<product id={id}>
+<style is:global>
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px; padding: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+    backdrop-filter: blur(8px);
+  }
+  .stat-card.accent {
+    background: rgba(249,115,22,0.12); border-color: rgba(249,115,22,0.35);
+  }
+  .stat-card.wide { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 1.25rem; }
+  .stat-icon {
+    width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+    background: rgba(249,115,22,0.2); display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .stat-card.wide .stat-icon { background: rgba(16,185,129,0.2); }
+  .stat-num {
+    font-size: 2rem; font-weight: 900; color: white; line-height: 1;
+  }
+  .stat-card.accent .stat-num { color: var(--accent); }
+  .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.55); font-weight: 500; line-height: 1.3; }
+  .stat-delta {
+    display: inline-flex; align-items: center; gap: 0.25rem;
+    font-size: 0.72rem; font-weight: 700; color: var(--green-500);
+    background: rgba(16,185,129,0.12); border-radius: 999px; padding: 2px 8px;
+    margin-top: 0.25rem; align-self: flex-start;
+  }
+  .stat-wide-text { flex: 1; }
+  .stat-wide-title { font-size: 0.9rem; font-weight: 700; color: white; margin-bottom: 0.2rem; }
+  .stat-wide-sub { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.4; }
+  .stat-bar-wrap { display: flex; flex-direction: column; gap: 0.35rem; flex-shrink: 0; width: 110px; }
+  .stat-bar-row { display: flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; color: rgba(255,255,255,0.5); }
+  .stat-bar-track { flex: 1; height: 5px; background: rgba(255,255,255,0.1); border-radius: 999px; overflow: hidden; }
+  .stat-bar-fill { height: 100%; border-radius: 999px; background: var(--green-500); }
+  .stat-bar-fill.orange { background: var(--accent); }
+  @media (max-width: 540px) {
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .stat-card { padding: 1rem; }
+    .stat-num { font-size: 1.4rem; }
+    .stat-icon { width: 30px; height: 30px; font-size: 0.85rem; }
+    .stat-label { font-size: 0.68rem; }
+    .stat-delta { font-size: 0.62rem; }
+  }
+</style>
+
+<div class="hero-stats">
+  <div class="stat-card accent">
+    <div class="stat-icon">📈</div>
+    <div class="stat-num">+4.2%</div>
+    <div class="stat-label">Average Daily Attendance improvement</div>
+    <div class="stat-delta">↑ vs. prior year</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">💰</div>
+    <div class="stat-num">$47K</div>
+    <div class="stat-label">Avg ADA funding recovered per school</div>
+    <div class="stat-delta">↑ vs. prior year</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">⏱️</div>
+    <div class="stat-num">12 hrs</div>
+    <div class="stat-label">Staff time saved per week</div>
+    <div class="stat-delta">↓ manual follow-up</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">🎯</div>
+    <div class="stat-num">28%</div>
+    <div class="stat-label">Fewer chronically absent students</div>
+    <div class="stat-delta">↓ year over year</div>
+  </div>
+</div>
+</product>

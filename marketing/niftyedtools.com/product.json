@@ -1,0 +1,440 @@
+{
+  "id": "22d85d50-d362-47bd-99c3-c6794d3c181e",
+  "name": "niftyedtools.com",
+  "type": "product",
+  "description": "Nifty marketing site — public-facing pages including homepage, calculator, and about",
+  "status": "active",
+  "parents": ["b03f2494-2f14-449e-97a4-7971c81527b8"],
+  "children": [
+    {
+      "id": "358e5fa5-a8ee-4b2d-a19d-f21dcac65fb3",
+      "name": "index",
+      "type": "webpage",
+      "description": "Homepage",
+      "parents": ["22d85d50-d362-47bd-99c3-c6794d3c181e"],
+      "dependencies": [
+        "3d455a54-0382-47ca-8bcc-62459cc989a0",
+        "a4f3ef6a-666c-4368-9320-b1da43f3ace3"
+      ],
+      "children": [
+        {
+          "id": "88afe2a3-5054-4e71-93cd-76c472680c30",
+          "name": "index-hero",
+          "type": "component",
+          "description": "Hero section",
+          "parents": ["358e5fa5-a8ee-4b2d-a19d-f21dcac65fb3"],
+          "children": [
+            {
+              "id": "3d0188e3-2d19-4e2e-9d5a-e1de8bc0ae56",
+              "name": "index-hero-text",
+              "type": "component",
+              "description": "Badge, headline, sub-copy, and CTA buttons",
+              "parents": ["88afe2a3-5054-4e71-93cd-76c472680c30"],
+              "children": []
+            },
+            {
+              "id": "5a7c6e9a-4ad7-4f89-9a2b-87557ab5c472",
+              "name": "index-hero-stats",
+              "type": "component",
+              "description": "4-card stats grid",
+              "parents": ["88afe2a3-5054-4e71-93cd-76c472680c30"],
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "b4167a0e-e4fd-4d54-8039-69a33e9c9ad5",
+          "name": "index-problem",
+          "type": "component",
+          "description": "Problem section",
+          "parents": ["358e5fa5-a8ee-4b2d-a19d-f21dcac65fb3"],
+          "children": [
+            {
+              "id": "51dfa85f-2da8-480a-8469-c87de3be471b",
+              "name": "index-problem-pains",
+              "type": "component",
+              "description": "3 pain items list",
+              "parents": ["b4167a0e-e4fd-4d54-8039-69a33e9c9ad5"],
+              "children": []
+            },
+            {
+              "id": "8c245d2a-3b39-4740-87c2-9430a392ead0",
+              "name": "index-problem-callout",
+              "type": "component",
+              "description": "Pull quote and attribution",
+              "parents": ["b4167a0e-e4fd-4d54-8039-69a33e9c9ad5"],
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "bed5d493-dca7-48bb-b36b-3ae8ae4ffea7",
+          "name": "index-how-it-works",
+          "type": "component",
+          "description": "2-step how it works section with SmsCarousel",
+          "parents": ["358e5fa5-a8ee-4b2d-a19d-f21dcac65fb3"],
+          "dependencies": ["0b304f07-dafa-450f-94ea-859853e71028"],
+          "children": []
+        },
+        {
+          "id": "8ef04ae1-a51f-4efb-91cf-b7c40520f19c",
+          "name": "index-testimonials",
+          "type": "component",
+          "description": "Testimonial carousel",
+          "parents": ["358e5fa5-a8ee-4b2d-a19d-f21dcac65fb3"],
+          "children": []
+        },
+        {
+          "id": "9e59d01c-a40f-43f9-92cf-3dd811d1b610",
+          "name": "index-demo",
+          "type": "component",
+          "description": "Cal.com demo booking embed",
+          "parents": ["358e5fa5-a8ee-4b2d-a19d-f21dcac65fb3"],
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "3962d5fd-fa17-4ee8-b3b3-9cfbd74575e4",
+      "name": "about",
+      "type": "webpage",
+      "description": "About Us page",
+      "parents": ["22d85d50-d362-47bd-99c3-c6794d3c181e"],
+      "dependencies": [
+        "815876fd-dd66-4a3a-a07b-8b7bf85a45f9",
+        "3d455a54-0382-47ca-8bcc-62459cc989a0",
+        "a4f3ef6a-666c-4368-9320-b1da43f3ace3",
+        "5835e805-9c0d-4fbc-a7e4-e3c7d47ddde5"
+      ],
+      "children": [
+        {
+          "id": "512b7a6e-05b1-4ece-a06e-d6f37657efb1",
+          "name": "about-hero",
+          "type": "component",
+          "description": "Page hero — Built for educators. By educators.",
+          "parents": ["3962d5fd-fa17-4ee8-b3b3-9cfbd74575e4"],
+          "children": []
+        },
+        {
+          "id": "f849b6e7-c155-4c36-bb47-2232b91905f3",
+          "name": "about-mission",
+          "type": "component",
+          "description": "Mission / What Drives Us section",
+          "parents": ["3962d5fd-fa17-4ee8-b3b3-9cfbd74575e4"],
+          "children": []
+        },
+        {
+          "id": "747b2f60-7f80-4376-be3a-5a45e58e0fb6",
+          "name": "about-team",
+          "type": "component",
+          "description": "Team grid with 4 cards",
+          "parents": ["3962d5fd-fa17-4ee8-b3b3-9cfbd74575e4"],
+          "children": []
+        },
+        {
+          "id": "8b608bcf-15b1-4695-a45b-458448862e11",
+          "name": "about-cta",
+          "type": "component",
+          "description": "CTA banner — Want to see what we've built?",
+          "parents": ["3962d5fd-fa17-4ee8-b3b3-9cfbd74575e4"],
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "1625514f-aff3-4263-b12e-5f9fb3526c28",
+      "name": "calculator",
+      "type": "webpage",
+      "description": "ADA recovery calculator",
+      "parents": ["22d85d50-d362-47bd-99c3-c6794d3c181e"],
+      "dependencies": [
+        "815876fd-dd66-4a3a-a07b-8b7bf85a45f9",
+        "3d455a54-0382-47ca-8bcc-62459cc989a0",
+        "a4f3ef6a-666c-4368-9320-b1da43f3ace3",
+        "5835e805-9c0d-4fbc-a7e4-e3c7d47ddde5"
+      ],
+      "children": [
+        {
+          "id": "d7a47e51-8868-4d31-b044-3b747665a830",
+          "name": "calculator-hero",
+          "type": "component",
+          "description": "Page hero — How much ADA funding are you leaving on the table?",
+          "parents": ["1625514f-aff3-4263-b12e-5f9fb3526c28"],
+          "children": []
+        },
+        {
+          "id": "f0c3c4ef-c20a-4ca4-a20a-139ec0821f22",
+          "name": "calculator-state",
+          "type": "component",
+          "description": "State selector bar and per-state disclaimer text",
+          "parents": ["1625514f-aff3-4263-b12e-5f9fb3526c28"],
+          "children": []
+        },
+        {
+          "id": "1e09d896-427d-4328-a9ca-77b8753442fe",
+          "name": "calculator-form",
+          "type": "component",
+          "description": "ADA rate, per-pupil aid, and enrollment input form",
+          "parents": ["1625514f-aff3-4263-b12e-5f9fb3526c28"],
+          "children": []
+        },
+        {
+          "id": "b293b510-05cb-46e5-b7ab-16edf27783a7",
+          "name": "calculator-results",
+          "type": "component",
+          "description": "Calculated result cards",
+          "parents": ["1625514f-aff3-4263-b12e-5f9fb3526c28"],
+          "children": []
+        },
+        {
+          "id": "ccd0c447-52c1-491d-94ee-5e877c9b76f1",
+          "name": "calculator-cta",
+          "type": "component",
+          "description": "CTA banner — Ready to start recovering that funding?",
+          "parents": ["1625514f-aff3-4263-b12e-5f9fb3526c28"],
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "c86a991e-a2a9-4a63-ac9e-6fb938c3749d",
+      "name": "demo",
+      "type": "webpage",
+      "description": "Demo request page — lead capture for SMS attendance tool demo",
+      "parents": ["22d85d50-d362-47bd-99c3-c6794d3c181e"],
+      "dependencies": [
+        "815876fd-dd66-4a3a-a07b-8b7bf85a45f9",
+        "3d455a54-0382-47ca-8bcc-62459cc989a0",
+        "a4f3ef6a-666c-4368-9320-b1da43f3ace3",
+        "5835e805-9c0d-4fbc-a7e4-e3c7d47ddde5"
+      ],
+      "children": [
+        {
+          "id": "7f3b092f-7455-479a-a952-0b02e3623310",
+          "name": "demo-hero",
+          "type": "component",
+          "description": "Page hero — See Nifty in action, 20 minutes no pressure",
+          "parents": ["c86a991e-a2a9-4a63-ac9e-6fb938c3749d"],
+          "children": []
+        },
+        {
+          "id": "74c08055-a961-49c6-bac2-ce5798050a65",
+          "name": "demo-carousel",
+          "type": "component",
+          "description": "Left-hand message carousel — cycles through sample SMS messages sent by Nifty Attendance",
+          "parents": ["c86a991e-a2a9-4a63-ac9e-6fb938c3749d"],
+          "children": []
+        },
+{
+          "id": "6e2aece0-ade7-403a-a2f1-e125a1985ae5",
+          "name": "demo-form",
+          "type": "component",
+          "description": "Lead capture form — name, school, role, email, phone",
+          "parents": ["c86a991e-a2a9-4a63-ac9e-6fb938c3749d"],
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "c3e8a142-7f56-4b29-d1e0-9a6f3b8c0e51",
+      "name": "attendance-page",
+      "type": "webpage",
+      "description": "Attendance product page — hero, 5 message type sections with SMS previews, CTA to book demo",
+      "parents": ["22d85d50-d362-47bd-99c3-c6794d3c181e"],
+      "dependencies": [
+        "815876fd-dd66-4a3a-a07b-8b7bf85a45f9",
+        "3d455a54-0382-47ca-8bcc-62459cc989a0",
+        "a4f3ef6a-666c-4368-9320-b1da43f3ace3",
+        "5835e805-9c0d-4fbc-a7e4-e3c7d47ddde5"
+      ],
+      "children": [
+        { "id": "d7b4f923-1a85-4e67-c2d0-5f8e9a1b3c64", "name": "attendance-hero", "type": "component", "description": "Hero — Every empty seat costs your district money", "parents": ["c3e8a142-7f56-4b29-d1e0-9a6f3b8c0e51"], "children": [] },
+        { "id": "e2c6a081-4d73-4f58-b9e3-7a1d2c5f8e30", "name": "attendance-unexcused", "type": "component", "description": "Unexcused absence section", "parents": ["c3e8a142-7f56-4b29-d1e0-9a6f3b8c0e51"], "children": [] },
+        { "id": "f1d5b792-3e84-4a69-c8f0-6b2e9d4a7c15", "name": "attendance-nudge", "type": "component", "description": "Streak nudge section", "parents": ["c3e8a142-7f56-4b29-d1e0-9a6f3b8c0e51"], "children": [] },
+        { "id": "a8e2c654-9b17-4d83-f6a1-3c7d0e5b9f28", "name": "attendance-trajectory", "type": "component", "description": "Trajectory warning section", "parents": ["c3e8a142-7f56-4b29-d1e0-9a6f3b8c0e51"], "children": [] },
+        { "id": "b9f3d765-2c48-4e94-a7b2-4d8f1e6c0a39", "name": "attendance-celebration", "type": "component", "description": "Streak celebration section", "parents": ["c3e8a142-7f56-4b29-d1e0-9a6f3b8c0e51"], "children": [] },
+        { "id": "c0a4e876-3d59-4f05-b8c3-5e9a2f7d1b46", "name": "attendance-report", "type": "component", "description": "Monthly admin report section", "parents": ["c3e8a142-7f56-4b29-d1e0-9a6f3b8c0e51"], "children": [] },
+        { "id": "d1b5f987-4e6a-4016-c9d4-6f0b3a8e2c57", "name": "attendance-cta", "type": "component", "description": "CTA — Book a demo", "parents": ["c3e8a142-7f56-4b29-d1e0-9a6f3b8c0e51"], "children": [] }
+      ]
+    },
+    {
+      "id": "a1f7e3b2-dc84-4f19-b6c1-8e0d5a2c9f47",
+      "name": "nifty-raffle",
+      "type": "webpage",
+      "description": "Raffle signup page for 2026 MSBA Annual Conference — dual-purpose lead capture and SMS demo experience",
+      "parents": ["22d85d50-d362-47bd-99c3-c6794d3c181e"],
+      "dependencies": [
+        "815876fd-dd66-4a3a-a07b-8b7bf85a45f9",
+        "3d455a54-0382-47ca-8bcc-62459cc989a0",
+        "a4f3ef6a-666c-4368-9320-b1da43f3ace3",
+        "5835e805-9c0d-4fbc-a7e4-e3c7d47ddde5"
+      ],
+      "children": [
+        {
+          "id": "d9e2c841-5b73-4a68-f7c0-3e1a8b6d0f52",
+          "name": "raffle-hero",
+          "type": "component",
+          "description": "Page hero — Enter the Nifty Raffle, 2026 MSBA Conference",
+          "parents": ["a1f7e3b2-dc84-4f19-b6c1-8e0d5a2c9f47"],
+          "children": []
+        },
+        {
+          "id": "f4a71c93-2e85-4d57-b8e1-6c9d0a3f7e24",
+          "name": "raffle-carousel",
+          "type": "component",
+          "description": "Left-hand message carousel — cycles through sample SMS messages sent by Nifty Attendance",
+          "parents": ["a1f7e3b2-dc84-4f19-b6c1-8e0d5a2c9f47"],
+          "children": []
+        },
+        {
+          "id": "b8c53f17-9d46-4e72-a2b0-7f8e1c5d9a63",
+          "name": "raffle-form",
+          "type": "component",
+          "description": "Raffle entry form — name, phone, district, school email",
+          "parents": ["a1f7e3b2-dc84-4f19-b6c1-8e0d5a2c9f47"],
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "a3f2d871-6c49-4b85-e0d3-2f7a1c8b5e94",
+      "name": "admin",
+      "type": "webpage",
+      "description": "Internal admin page — live leads table with polling, basic auth",
+      "parents": ["22d85d50-d362-47bd-99c3-c6794d3c181e"],
+      "children": []
+    },
+    {
+      "id": "b51d860f-9927-4a12-9cf2-668464845dbf",
+      "name": "header",
+      "type": "component",
+      "description": "App header with nav dropdown",
+      "parents": ["22d85d50-d362-47bd-99c3-c6794d3c181e"],
+      "children": [
+        {
+          "id": "65c078c1-f83f-4b70-b7da-1102e73f0503",
+          "name": "header-logo",
+          "type": "component",
+          "description": "Brand logo and home link",
+          "parents": ["b51d860f-9927-4a12-9cf2-668464845dbf"],
+          "children": []
+        },
+        {
+          "id": "12c7531b-3321-4ced-8339-bddbb6aad4b3",
+          "name": "header-hamburger",
+          "type": "component",
+          "description": "Mobile menu toggle button",
+          "parents": ["b51d860f-9927-4a12-9cf2-668464845dbf"],
+          "children": []
+        },
+        {
+          "id": "52af5fc1-4e4d-46d7-951a-2c3b0721250f",
+          "name": "header-dropdown",
+          "type": "component",
+          "description": "Navigation dropdown menu",
+          "parents": ["b51d860f-9927-4a12-9cf2-668464845dbf"],
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "3d455a54-0382-47ca-8bcc-62459cc989a0",
+      "name": "nav",
+      "type": "component",
+      "description": "Marketing site navigation bar",
+      "parents": ["22d85d50-d362-47bd-99c3-c6794d3c181e"],
+      "children": [
+        {
+          "id": "21811889-7a0a-4d73-9f0b-fa01813cea40",
+          "name": "nav-logo",
+          "type": "component",
+          "description": "Brand logo and home link",
+          "parents": ["3d455a54-0382-47ca-8bcc-62459cc989a0"],
+          "children": []
+        },
+        {
+          "id": "12bf92fb-66cd-42d6-87d0-9430a15a647c",
+          "name": "nav-links",
+          "type": "component",
+          "description": "Desktop navigation links",
+          "parents": ["3d455a54-0382-47ca-8bcc-62459cc989a0"],
+          "children": []
+        },
+        {
+          "id": "0e587385-e0b5-4865-b652-bbf39cae8151",
+          "name": "nav-mobile-menu",
+          "type": "component",
+          "description": "Mobile navigation menu",
+          "parents": ["3d455a54-0382-47ca-8bcc-62459cc989a0"],
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "a4f3ef6a-666c-4368-9320-b1da43f3ace3",
+      "name": "footer",
+      "type": "component",
+      "description": "Marketing site footer",
+      "parents": ["22d85d50-d362-47bd-99c3-c6794d3c181e"],
+      "children": [
+        {
+          "id": "4526d687-21cc-424c-ac29-22b8ee0e390f",
+          "name": "footer-logo",
+          "type": "component",
+          "description": "Brand logo and home link",
+          "parents": ["a4f3ef6a-666c-4368-9320-b1da43f3ace3"],
+          "children": []
+        },
+        {
+          "id": "dabf1cea-4a98-4750-9bdc-65d16153ea53",
+          "name": "footer-tagline",
+          "type": "component",
+          "description": "Customizable tagline text",
+          "parents": ["a4f3ef6a-666c-4368-9320-b1da43f3ace3"],
+          "children": []
+        },
+        {
+          "id": "eaefd517-016c-419c-b269-fd9d1a4eadac",
+          "name": "footer-links",
+          "type": "component",
+          "description": "Footer navigation links",
+          "parents": ["a4f3ef6a-666c-4368-9320-b1da43f3ace3"],
+          "children": []
+        },
+        {
+          "id": "9b46a066-fe5d-4f3c-a4d4-91980da828b3",
+          "name": "footer-copyright",
+          "type": "component",
+          "description": "Copyright notice",
+          "parents": ["a4f3ef6a-666c-4368-9320-b1da43f3ace3"],
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "815876fd-dd66-4a3a-a07b-8b7bf85a45f9",
+      "name": "layout",
+      "type": "component",
+      "description": "Shared page layout wrapper",
+      "parents": ["22d85d50-d362-47bd-99c3-c6794d3c181e"],
+      "children": []
+    },
+    {
+      "id": "0b304f07-dafa-450f-94ea-859853e71028",
+      "name": "sms-carousel",
+      "type": "component",
+      "description": "Reusable SMS message carousel with iPhone UI mockup and slide descriptions",
+      "parents": ["22d85d50-d362-47bd-99c3-c6794d3c181e"],
+      "children": []
+    },
+    {
+      "id": "5835e805-9c0d-4fbc-a7e4-e3c7d47ddde5",
+      "name": "page-styles",
+      "type": "component",
+      "description": "Shared product page CSS styles",
+      "parents": ["22d85d50-d362-47bd-99c3-c6794d3c181e"],
+      "children": []
+    }
+  ],
+  "capabilities": {}
+}

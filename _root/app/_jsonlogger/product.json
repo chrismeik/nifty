@@ -1,0 +1,9 @@
+{
+  "id": "1f4fda77-e87c-42a2-978a-7869c65a17a6",
+  "name": "_root/app/_jsonlogger",
+  "type": "system",
+  "description": "Structured JSON logging — formats log output for Loki and log aggregation",
+  "status": "active",
+  "parents": ["8540f7ed-5de1-4b52-b941-c10617c3661a"],
+  "children": []
+}

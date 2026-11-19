@@ -1,0 +1,9 @@
+{
+  "id": "02707f37-99b7-42d7-8e11-615282f2bfe7",
+  "name": "_root/data/_docs",
+  "type": "system",
+  "description": "Platform documentation — reference docs for the Veratree OS platform",
+  "status": "active",
+  "parents": ["2d07f5be-88b1-45e0-aaab-bb6af7d673c8"],
+  "children": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "e54ac9b1-5e21-414b-ab76-d234c8ca8f94",
+  "name": "finance",
+  "type": "department",
+  "description": "Finance department",
+  "status": "active",
+  "parents": ["93997f5a-b389-462e-b910-892d76aba8ec"],
+  "children": []
+}

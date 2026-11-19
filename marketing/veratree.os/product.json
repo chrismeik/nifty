@@ -1,0 +1,10 @@
+{
+  "id": "60d43ab4-b83b-4221-b322-88e3391211f5",
+  "name": "astro",
+  "type": "product",
+  "description": "VeraTree OS marketing site — public-facing pages",
+  "status": "active",
+  "parents": ["b03f2494-2f14-449e-97a4-7971c81527b8"],
+  "children": [],
+  "capabilities": {}
+}

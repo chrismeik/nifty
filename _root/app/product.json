@@ -1,0 +1,19 @@
+{
+  "id": "8540f7ed-5de1-4b52-b941-c10617c3661a",
+  "name": "_root/app",
+  "type": "system",
+  "description": "FastAPI application container — runtime, entrypoint, shared modules",
+  "status": "active",
+  "parents": ["e0569660-673a-4d47-ba9d-7603cf126156"],
+  "children": [
+    "80b7bcbd-aaf3-49af-8f19-e74802b1dc2d",
+    "539639ef-bb36-4a58-b840-341ef46304f4",
+    "81413555-c89c-49eb-81b3-a02375b7cdf2",
+    "f205dd15-1e63-4564-8230-979cec4ad614",
+    "1f4fda77-e87c-42a2-978a-7869c65a17a6",
+    "ff7689f1-5ae7-43c0-96fe-3784db4db612",
+    "d9c00671-ae50-4389-870a-bc19fee63f69",
+    "d894ad50-f4a7-4553-ae12-acfc300e72a5",
+    "84aa7c46-eb5a-4060-a791-e1145de24e9d"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": "f4314af4-3bb9-416a-8e69-d7575e2fa577",
+  "name": "notify",
+  "type": "pipeline",
+  "description": "Scheduler-triggered notify pipeline — pulls SIS data, detects absences, and sends parent notifications",
+  "status": "active",
+  "parents": ["43d63153-724c-46d9-bd33-767830cc0038"],
+  "children": [
+    {
+      "id": "406a9e25-6a58-4413-a462-986046c437ab",
+      "name": "notify.tasks",
+      "type": "tasks",
+      "description": "Individual pipeline tasks: source ingestion, absence detection, analytics, contact lookup, and notification delivery",
+      "status": "active",
+      "children": [
+        {
+          "id": "2b2108a8-9182-4709-a3ae-66fc674fdba0",
+          "name": "sources",
+          "type": "task",
+          "description": "Steps 1-3: pull from SIS, stage raw data, and transform to core Ed-Fi tables",
+          "status": "active",
+          "children": [
+            {
+              "id": "e3c58415-5a7b-4c41-afd2-d75b900dbbdc",
+              "name": "powerschool_adapter",
+              "type": "adapter",
+              "description": "PowerSchool SIS adapter — bridges PowerSchool pull/stage/transform into the sources task interface",
+              "status": "active",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "aeec5b50-72b5-461d-a2a1-0acfcbe2be97",
+          "name": "absences",
+          "type": "task",
+          "description": "Step 4: query core.student_school_attendance_events for unexcused absences on the target date",
+          "status": "active",
+          "children": []
+        },
+        {
+          "id": "3bf17e70-0056-4523-89ca-5db6bb92d639",
+          "name": "analytics",
+          "type": "task",
+          "description": "Step 5: increment YTD absence counts in analytics.student_absence_summary",
+          "status": "active",
+          "children": []
+        },
+        {
+          "id": "5cc31138-1449-457e-bda0-83d8c0063fbd",
+          "name": "contacts",
+          "type": "task",
+          "description": "Step 6: look up primary guardian contact and phone for each absent student",
+          "status": "active",
+          "children": []
+        },
+        {
+          "id": "2a75e0e9-f81e-4799-8f8b-02e2a497b734",
+          "name": "notifications",
+          "type": "task",
+          "description": "Step 7: send SMS notifications via DialMyCalls and log outcomes to analytics.notification_log",
+          "status": "active",
+          "children": []
+        }
+      ]
+    }
+  ],
+  "dependencies": []
+}

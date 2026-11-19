@@ -1,0 +1,14 @@
+{
+  "id": "e0569660-673a-4d47-ba9d-7603cf126156",
+  "name": "_root",
+  "type": "system",
+  "description": "Platform infrastructure — app, data, platform, ops",
+  "status": "active",
+  "parents": ["93997f5a-b389-462e-b910-892d76aba8ec"],
+  "children": [
+    "8540f7ed-5de1-4b52-b941-c10617c3661a",
+    "2d07f5be-88b1-45e0-aaab-bb6af7d673c8",
+    "4055b911-25b3-4f0d-880c-b542b543c2e0",
+    "f57a8744-b52e-4600-a478-d71396f5c7a8"
+  ]
+}

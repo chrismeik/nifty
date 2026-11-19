@@ -1,0 +1,109 @@
+---
+interface Props {
+  id?: string;
+}
+const { id = '' } = Astro.props;
+---
+<product id={id}>
+<style is:global>
+  .funding-cta-card {
+    max-width: 680px; margin: 0 auto;
+    background: #2d52a8;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
+    display: flex; flex-direction: column;
+    align-items: center; text-align: center;
+    gap: 0.85rem;
+  }
+  .funding-cta-eyebrow {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .funding-cta-headline {
+    font-size: 1.35rem; font-weight: 800; color: rgba(255,255,255,0.92); line-height: 1.3;
+  }
+  .funding-cta-amount {
+    font-size: 2.6rem; font-weight: 800; color: var(--accent);
+    line-height: 1; letter-spacing: -0.02em; margin: 0.25rem 0;
+  }
+  .funding-cta-amount-label {
+    font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-top: -0.5rem;
+  }
+  .funding-cta-sub {
+    font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.65; max-width: 440px;
+  }
+  .funding-cta-btn {
+    display: inline-block;
+    background: var(--accent); color: white;
+    text-decoration: none; padding: 0.85rem 2rem;
+    border-radius: 8px; font-size: 0.95rem; font-weight: 700;
+    box-shadow: 0 4px 14px rgba(249,115,22,0.3);
+    transition: background 0.15s, transform 0.1s;
+    margin-top: 0.4rem;
+  }
+  .funding-cta-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+  @media (max-width: 540px) {
+    .funding-cta-card { padding: 2rem 1.5rem; }
+    .funding-cta-amount { font-size: 2.1rem; }
+  }
+</style>
+
+<div class="funding-cta-card">
+  <div class="funding-cta-eyebrow">💰 ADA Funding Calculator</div>
+  <div class="funding-cta-headline">How much ADA funding is your district leaving on the table?</div>
+  <div class="funding-cta-amount"><span id="funding-counter">$0</span></div>
+  <div class="funding-cta-amount-label">Your recovery potential</div>
+  <div class="funding-cta-sub">Enter your enrollment and current attendance rate. Our calculator estimates your recovery potential in seconds — no signup required.</div>
+  <a href="/calculator" class="funding-cta-btn">Calculate My District's Recovery →</a>
+</div>
+
+<script>
+  const TARGET = 247500;
+  const COUNT_MS = 2200;
+  const PAUSE_MS = 1800;
+  const RESET_MS = 400;
+
+  function easeOut(t: number) { return 1 - Math.pow(1 - t, 3); }
+
+  function fmt(n: number) {
+    return '$' + Math.round(n).toLocaleString();
+  }
+
+  function runCycle(el: HTMLElement) {
+    let start: number | null = null;
+    function tick(ts: number) {
+      if (!start) start = ts;
+      const t = Math.min((ts - start) / COUNT_MS, 1);
+      el.textContent = fmt(easeOut(t) * TARGET);
+      if (t < 1) { requestAnimationFrame(tick); return; }
+      el.textContent = fmt(TARGET);
+      setTimeout(() => {
+        let rs: number | null = null;
+        function reset(ts: number) {
+          if (!rs) rs = ts;
+          const t = Math.min((ts - rs) / RESET_MS, 1);
+          el.textContent = fmt((1 - t) * TARGET);
+          if (t < 1) { requestAnimationFrame(reset); return; }
+          el.textContent = '$0';
+          setTimeout(() => runCycle(el), 300);
+        }
+        requestAnimationFrame(reset);
+      }, PAUSE_MS);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const el = document.getElementById('funding-counter');
+  if (el) {
+    const obs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        obs.disconnect();
+        runCycle(el as HTMLElement);
+      }
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  }
+</script>
+</product>

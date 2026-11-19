@@ -1,0 +1,27 @@
+{
+  "id": "b03f2494-2f14-449e-97a4-7971c81527b8",
+  "name": "marketing",
+  "type": "department",
+  "description": "Marketing department — public-facing websites and campaigns",
+  "status": "active",
+  "parents": ["93997f5a-b389-462e-b910-892d76aba8ec"],
+  "children": [
+    {
+      "id": "93d9b7ae-3b27-4a76-82bf-ff008425627c",
+      "name": "nifty_db.marketing",
+      "type": "schema",
+      "description": "Marketing schema — CRM and lead capture for the Nifty product line",
+      "status": "active",
+      "children": [
+        {
+          "id": "c5d18042-39b2-4787-8ac5-dd44f9a9a707",
+          "name": "marketing.leads",
+          "type": "table",
+          "description": "Demo request leads — name, phone, and district",
+          "status": "active",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

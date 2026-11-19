@@ -1,0 +1,12 @@
+{
+  "id": "4055b911-25b3-4f0d-880c-b542b543c2e0",
+  "name": "_root/platform",
+  "type": "system",
+  "description": "Infrastructure layer — Docker Compose stack definition and Nginx reverse proxy",
+  "status": "active",
+  "parents": ["e0569660-673a-4d47-ba9d-7603cf126156"],
+  "children": [
+    "3a0880b8-3760-4dcf-8967-e6a801f8ce22",
+    "c165dd28-34af-4d66-8378-85e47eb443fb"
+  ]
+}

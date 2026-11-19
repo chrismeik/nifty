@@ -1,0 +1,155 @@
+---
+import Layout from '../components/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ProductPageStyles from '../components/ProductPageStyles.astro';
+---
+<product id="3962d5fd-fa17-4ee8-b3b3-9cfbd74575e4">
+<Layout
+  title="About Us — Nifty"
+  description="Nifty is an ed tech company founded by educators, built to empower teachers and school staff — not replace them."
+>
+  <style is:global>
+    @import "../styles/_tokens.css";
+
+    /* <product id="f849b6e7-c155-4c36-bb47-2232b91905f3"> */
+    .mission-grid {
+      max-width: 720px; margin: 0 auto;
+    }
+    .mission-body { display: flex; flex-direction: column; gap: 1.25rem; }
+    .mission-body p { font-size: 1rem; color: var(--slate-700); line-height: 1.8; }
+    /* </product> */
+
+    /* <product id="747b2f60-7f80-4376-be3a-5a45e58e0fb6"> */
+    .team-header { text-align: center; margin-bottom: 3.5rem; }
+    .team-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem;
+    }
+    .team-card {
+      background: white; border: 1px solid var(--slate-200);
+      border-radius: 16px; padding: 2rem;
+      display: flex; flex-direction: column; gap: 1.25rem;
+    }
+    .team-photo {
+      width: 80px; height: 80px; border-radius: 50%;
+      object-fit: cover; object-position: center top;
+      flex-shrink: 0;
+    }
+    .team-info {}
+    .team-name { font-size: 1.05rem; font-weight: 800; color: var(--slate-950); }
+    .team-title {
+      font-size: 0.78rem; font-weight: 600; color: var(--brand-600);
+      text-transform: uppercase; letter-spacing: 0.06em;
+      margin-top: 0.2rem; margin-bottom: 0.875rem;
+    }
+    .team-bio { font-size: 0.875rem; color: var(--slate-600); line-height: 1.7; }
+    @media (max-width: 860px) { .team-grid { grid-template-columns: 1fr; } }
+    /* </product> */
+
+    /* <product id="8b608bcf-15b1-4695-a45b-458448862e11"> */
+    .cta-banner {
+      background: linear-gradient(135deg, #c2410c 0%, #f97316 100%);
+    }
+    /* </product> */
+  </style>
+
+  <ProductPageStyles />
+
+  <Nav />
+
+  <!-- PAGE HERO -->
+  <product id="512b7a6e-05b1-4ece-a06e-d6f37657efb1">
+  <section class="page-hero">
+    <h1>Built for educators.<br/><span>By educators.</span></h1>
+    <p>We started in classrooms and school offices. That's still where every product decision gets made.</p>
+  </section>
+  </product>
+
+  <!-- MISSION -->
+  <product id="f849b6e7-c155-4c36-bb47-2232b91905f3">
+  <section class="section">
+    <div class="container">
+      <div class="mission-grid">
+        <div>
+          <p class="eyebrow">What Drives Us</p>
+          <h2 class="section-heading">Technology should make great teachers more powerful, not redundant.</h2>
+          <div class="mission-body">
+            <p>Nifty was founded by educators who spent years in classrooms and school offices before ever writing a line of code. We've covered classes on short notice, chased down attendance records, and sat in the data meetings where spreadsheets go to die. That experience is baked into every product decision we make.</p>
+            <p>There's a lot of ed tech that promises to automate the teacher's job. That's not what we do. The relationships, judgment, and instincts that make a great educator great can't be automated — and we'd never want to try. What we can do is remove the administrative weight that pulls school staff away from the work that actually matters.</p>
+            <p>Every tool we ship has a single test: does it give educators more time to teach? If the answer isn't an obvious yes, it doesn't ship.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </product>
+
+  <!-- TEAM -->
+  <product id="747b2f60-7f80-4376-be3a-5a45e58e0fb6">
+  <section class="section section-alt">
+    <div class="container">
+      <div class="team-header">
+        <p class="eyebrow">Our Team</p>
+        <h2 class="section-heading">The people behind Nifty</h2>
+        <p class="section-sub" style="max-width:520px;margin:0 auto;">A small team with deep roots in education, technology, and security — built to move fast without cutting corners.</p>
+      </div>
+      <div class="team-grid">
+
+        <!-- Nathan Meik -->
+        <div class="team-card">
+          <img class="team-photo" src="/team/nathan.jpg" alt="Nathan Meik" />
+          <div class="team-info">
+            <div class="team-name">Nathan Meik</div>
+            <div class="team-title">Founder &amp; CEO</div>
+            <p class="team-bio">Nathan founded Nifty on a simple conviction: the best school software is built by people who have actually worked in schools. As CEO, he sets the vision and keeps the team focused on what matters — practical tools that work the way school staff actually work. His leadership style is rooted in deep respect for educators and a refusal to ship products that look good in demos but fail in the field.</p>
+          </div>
+        </div>
+
+        <!-- Sarah Spieth -->
+        <div class="team-card">
+          <img class="team-photo" src="/team/sarah.jpg" alt="Sarah Spieth" />
+          <div class="team-info">
+            <div class="team-name">Sarah Spieth</div>
+            <div class="team-title">Founder &amp; COO</div>
+            <p class="team-bio">Sarah spent over a decade in the classroom before building a second career in technology, spanning project management, sales, and operations. That dual experience — knowing both what teachers need and how to build organizations that deliver it — makes her uniquely suited to run Nifty's operations. She's the reason things ship on time, and why the product feels like it was designed by someone who's actually covered a class on short notice.</p>
+          </div>
+        </div>
+
+        <!-- Chris Meik -->
+        <div class="team-card">
+          <img class="team-photo" src="/team/chris.jpg" alt="Chris Meik" />
+          <div class="team-info">
+            <div class="team-name">Chris Meik</div>
+            <div class="team-title">CTO</div>
+            <p class="team-bio">Chris brings deep expertise in data architecture, AI systems, and privacy-first infrastructure to Nifty. His background spans enterprise data engineering, AI tooling, and building lean systems that keep organizations in control of their own data. His philosophy is straightforward: school data is sensitive and should be treated that way — fast, clean architecture that never oversteps.</p>
+          </div>
+        </div>
+
+        <!-- Bennett Tomlinson -->
+        <div class="team-card">
+          <img class="team-photo" src="/team/bennett.jpg" alt="Bennett Tomlinson" />
+          <div class="team-info">
+            <div class="team-name">Bennett Tomlinson</div>
+            <div class="team-title">Head of Security &amp; Compliance</div>
+            <p class="team-bio">Bennett brings over a decade of offensive cybersecurity experience to Nifty, including time on Accenture's FusionX Advanced team and work at the Foundation for American Innovation focused on AI infrastructure security. One of his passions is putting middle and high school students into real blue team roles defending live networks — which means he takes student data security personally. At Nifty, he ensures the systems that handle student and family data are held to the highest standard.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  </product>
+
+  <!-- CTA -->
+  <product id="8b608bcf-15b1-4695-a45b-458448862e11">
+  <section class="cta-banner">
+    <h2>Want to see what we've built?</h2>
+    <p>Book a 30-minute demo and we'll walk you through it live.</p>
+    <a href="/demo" class="btn-primary btn-white">Book a Demo →</a>
+  </section>
+  </product>
+
+  <Footer tagline="Tools that support your team, not replace them." />
+
+</Layout>
+</product>

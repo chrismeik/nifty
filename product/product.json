@@ -1,0 +1,175 @@
+{
+  "id": "19f614b2-4cb5-4fa8-8894-e0f3bce2257a",
+  "name": "product",
+  "type": "department",
+  "description": "Product department — Nifty and VeraTree OS product lines",
+  "status": "active",
+  "parents": ["93997f5a-b389-462e-b910-892d76aba8ec"],
+  "children": [
+    {
+      "id": "693f8463-9429-412f-8e2c-5664261c03c0",
+      "name": "nifty_db",
+      "type": "database",
+      "description": "Postgres database for the nifty product line",
+      "status": "active",
+      "children": [
+        {
+          "id": "f93408de-b1f4-4b54-a63b-f8a4b2bba070",
+          "name": "nifty_db.core",
+          "type": "schema",
+          "description": "Ed-Fi canonical entities — SIS-agnostic, shared across all nifty products",
+          "status": "active",
+          "children": [
+            {
+              "id": "dd00f271-6b19-40e5-9d73-d9cc06410dd0",
+              "name": "core.local_education_agencies",
+              "type": "table",
+              "description": "Districts and local education agencies",
+              "status": "active",
+              "children": []
+            },
+            {
+              "id": "8a38c779-ebc0-41f4-a890-57e8041e2df1",
+              "name": "core.schools",
+              "type": "table",
+              "description": "Schools within a local education agency",
+              "status": "active",
+              "children": []
+            },
+            {
+              "id": "896d59f0-87b7-40c7-ba25-db4a61ada2cb",
+              "name": "core.sessions",
+              "type": "table",
+              "description": "Academic year sessions per school",
+              "status": "active",
+              "children": []
+            },
+            {
+              "id": "d9518aa6-aa59-4d7f-ac9d-0e43f6fcc257",
+              "name": "core.students",
+              "type": "table",
+              "description": "Student identities",
+              "status": "active",
+              "children": []
+            },
+            {
+              "id": "ec6bad7b-7554-4a14-ad77-c7554f8e6a99",
+              "name": "core.student_school_associations",
+              "type": "table",
+              "description": "Student enrollment records per school",
+              "status": "active",
+              "children": []
+            },
+            {
+              "id": "1a3d33bc-a584-4f78-8d2b-bb6409effe96",
+              "name": "core.contacts",
+              "type": "table",
+              "description": "Guardian and emergency contact identities",
+              "status": "active",
+              "children": []
+            },
+            {
+              "id": "21e23d3c-f935-42e0-a913-e1477be90f99",
+              "name": "core.student_contact_associations",
+              "type": "table",
+              "description": "Links students to their contacts with relationship metadata",
+              "status": "active",
+              "children": []
+            },
+            {
+              "id": "21854b64-c21d-4561-bdc1-c2374c133be8",
+              "name": "core.sis_configurations",
+              "type": "table",
+              "description": "SIS connection configuration per school",
+              "status": "active",
+              "children": []
+            },
+            {
+              "id": "742b2e9e-880b-4219-a19b-6370c9ae321f",
+              "name": "core.student_school_attendance_events",
+              "type": "table",
+              "description": "Raw Ed-Fi attendance events per student per school",
+              "status": "active",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "a1977afe-0e10-441d-a41d-be2028637ed2",
+          "name": "nifty_db.analytics",
+          "type": "schema",
+          "description": "Derived and aggregated tables owned by the notify pipeline",
+          "status": "active",
+          "children": [
+            {
+              "id": "0940e4f2-762b-458b-9f5b-cae909108ec7",
+              "name": "analytics.student_absence_summary",
+              "type": "table",
+              "description": "Aggregated absence counts per student per session",
+              "status": "active",
+              "children": []
+            },
+            {
+              "id": "4c296ba1-bbe7-4fd4-87bd-e6914c022219",
+              "name": "analytics.notification_log",
+              "type": "table",
+              "description": "Log of all notification attempts with delivery status",
+              "status": "active",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "93d9b7ae-3b27-4a76-82bf-ff008425627c",
+          "name": "nifty_db.marketing",
+          "type": "schema",
+          "description": "Marketing schema — CRM and lead capture for the Nifty product line",
+          "status": "active",
+          "children": [
+            {
+              "id": "c5d18042-39b2-4787-8ac5-dd44f9a9a707",
+              "name": "marketing.leads",
+              "type": "table",
+              "description": "Demo request leads — name, phone, and district",
+              "status": "active",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "b6d00b3f-f621-47d7-b15a-f1c8a7845f19",
+          "name": "nifty_db.powerschool",
+          "type": "schema",
+          "description": "Raw staging tables mirroring PowerSchool field shapes",
+          "status": "active",
+          "children": [
+            {
+              "id": "48f7abe0-cfc7-4baa-9cdc-a381a455faf2",
+              "name": "powerschool.students",
+              "type": "table",
+              "description": "Raw student records from PowerSchool",
+              "status": "active",
+              "children": []
+            },
+            {
+              "id": "d5f37e73-87b7-4250-bfa4-a4755889ce14",
+              "name": "powerschool.attendance",
+              "type": "table",
+              "description": "Raw attendance records from PowerSchool",
+              "status": "active",
+              "children": []
+            },
+            {
+              "id": "3467cec7-e290-48b4-a148-f7f242985945",
+              "name": "powerschool.contacts",
+              "type": "table",
+              "description": "Raw contact records from PowerSchool",
+              "status": "active",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

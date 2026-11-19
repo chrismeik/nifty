@@ -1,0 +1,319 @@
+---
+import Layout from '../components/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ProductPageStyles from '../components/ProductPageStyles.astro';
+---
+<product id="1625514f-aff3-4263-b12e-5f9fb3526c28">
+<Layout
+  title="ADA Calculator — Nifty"
+  description="See how much ADA funding your school could recover with automated attendance intervention."
+>
+  <style is:global>
+    @import "../styles/_tokens.css";
+
+    /* <product id="f0c3c4ef-c20a-4ca4-a20a-139ec0821f22"> */
+    .state-bar {
+      background: white;
+      padding: 1.75rem 2rem 1.25rem;
+    }
+    .state-bar-inner {
+      max-width: 1080px; margin: 0 auto;
+    }
+    .state-question {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--slate-400); margin-bottom: 1rem;
+      text-align: center;
+    }
+    .state-links {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
+      justify-content: center;
+    }
+    .state-btn {
+      background: white; border: 1.5px solid var(--slate-200); cursor: pointer;
+      padding: 0.45rem 1.1rem; border-radius: 999px;
+      font-size: 0.95rem; font-weight: 600; color: var(--slate-500);
+      transition: border-color 0.15s, color 0.15s, background 0.15s, box-shadow 0.15s;
+      line-height: 1;
+    }
+    .state-btn:hover {
+      border-color: var(--slate-400); color: var(--slate-800);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .state-btn.active {
+      background: var(--accent); border-color: var(--accent);
+      color: white; box-shadow: 0 2px 8px rgba(249,115,22,0.3);
+    }
+    .disclaimer-bar {
+      background: white;
+      padding: 0 2rem 1.5rem;
+    }
+    .disclaimer-bar-inner {
+      max-width: 864px; margin: 0 auto;
+    }
+    @media (max-width: 640px) { .disclaimer-bar-inner { max-width: 100%; } }
+    .disclaimer-tag {
+      font-size: 0.68rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--slate-400); margin-right: 0.5rem;
+    }
+    .disclaimer-text {
+      font-size: 0.82rem; color: var(--slate-400); line-height: 1.6;
+    }
+    .disclaimer-text a { color: var(--accent); }
+    /* </product> */
+
+    .calc-section { padding: 2.5rem 2rem 5rem; }
+    .calc-inner { max-width: 1080px; margin: 0 auto; }
+    .calc-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+    }
+    @media (max-width: 860px) { .calc-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+    /* <product id="1e09d896-427d-4328-a9ca-77b8753442fe"> */
+    .calc-form {
+      background: white; border: 1px solid var(--slate-200);
+      border-radius: 16px; padding: 2rem;
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .calc-field { display: flex; flex-direction: column; gap: 0.5rem; }
+    .calc-field label {
+      font-size: 0.82rem; font-weight: 700; color: var(--slate-700);
+      letter-spacing: 0.02em;
+    }
+    .calc-field input, .calc-field select {
+      padding: 0.7rem 1rem; border: 1.5px solid var(--slate-200);
+      border-radius: 8px; font-size: 1rem; color: var(--slate-800);
+      transition: border-color 0.15s; width: 100%;
+      background: white; appearance: none;
+    }
+    .calc-field input:focus, .calc-field select:focus { outline: none; border-color: var(--accent); }
+    .calc-field .hint { font-size: 0.75rem; color: var(--slate-400); }
+    .calc-submit {
+      background: var(--accent); color: white;
+      border: none; border-radius: 8px; padding: 0.875rem 1.5rem;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+    .calc-submit:hover { background: var(--accent-hover); transform: translateY(-2px); }
+    /* </product> */
+
+    /* <product id="b293b510-05cb-46e5-b7ab-16edf27783a7"> */
+    .calc-results { display: flex; flex-direction: column; gap: 1.25rem; }
+    .result-card {
+      background: white; border: 1px solid var(--slate-200);
+      border-radius: 16px; padding: 1.75rem;
+    }
+    .result-card.highlight { background: #fff7ed; border: 2px solid var(--accent); }
+    .result-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--slate-400); margin-bottom: 0.4rem;
+    }
+    .result-card.highlight .result-label { color: #c2410c; }
+    .result-value {
+      font-size: 2.2rem; font-weight: 900; color: var(--slate-950); line-height: 1;
+    }
+    .result-card.highlight .result-value { color: var(--accent); }
+    .result-sub { font-size: 0.82rem; color: var(--slate-400); margin-top: 0.4rem; }
+    .result-placeholder {
+      font-size: 0.9rem; color: var(--slate-400); font-style: italic;
+      text-align: center; padding: 3rem 1rem;
+      border: 2px dashed var(--slate-200); border-radius: 16px;
+    }
+    /* </product> */
+
+    /* <product id="ccd0c447-52c1-491d-94ee-5e877c9b76f1"> */
+    .cta-banner {
+      background: linear-gradient(135deg, #c2410c 0%, #f97316 100%);
+    }
+    /* </product> */
+  </style>
+
+  <ProductPageStyles />
+
+  <Nav />
+
+  <!-- PAGE HERO -->
+  <product id="d7a47e51-8868-4d31-b044-3b747665a830">
+  <section class="page-hero">
+    <h1>How much ADA funding<br/><span>are you leaving on the table?</span></h1>
+    <p>See what automated attendance intervention could recover for your school.</p>
+  </section>
+  </product>
+
+  <!-- STATE BAR -->
+  <product id="f0c3c4ef-c20a-4ca4-a20a-139ec0821f22">
+  <div class="state-bar">
+    <div class="state-bar-inner">
+      <div class="state-question">Which state is your school district in?</div>
+      <div class="state-links">
+        <button class="state-btn" onclick="selectState('arkansas', this)">Arkansas</button>
+        <button class="state-btn" onclick="selectState('california', this)">California</button>
+        <button class="state-btn" onclick="selectState('mississippi', this)">Mississippi</button>
+        <button class="state-btn active" onclick="selectState('missouri', this)">Missouri</button>
+        <button class="state-btn" onclick="selectState('texas', this)">Texas</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER (part of state bar product) -->
+  <div class="disclaimer-bar" id="disclaimer-bar">
+    <div class="disclaimer-bar-inner">
+      <span class="disclaimer-tag">Disclaimer</span><span class="disclaimer-text" id="disclaimer-text">Missouri calculates state aid on Weighted Average Daily Attendance (WADA), not straight ADA. Students in free/reduced lunch, special education, or English language learning programs count for more than 1.0 in the formula — so the actual revenue impact of an attendance improvement depends on who starts showing up, not just how many. This calculator treats all students equally, which means the number above could be higher or lower than what your district actually sees. Missouri also averages WADA over three years, so a single year of better attendance gets phased in gradually — the full financial effect plays out over two to three fiscal years, not all at once.</span>
+    </div>
+  </div>
+  </product>
+
+  <!-- CALCULATOR -->
+  <div class="calc-section">
+    <div class="calc-inner">
+      <div class="calc-grid">
+
+        <!-- Inputs -->
+        <product id="1e09d896-427d-4328-a9ca-77b8753442fe">
+        <div class="calc-form">
+          <div class="calc-field">
+            <label for="ada-rate">Current ADA rate (%)</label>
+            <select id="ada-rate">
+              <option value="" disabled selected>Select your ADA rate</option>
+              <option value="83">85% or below</option>
+              <option value="86.5">86% – 87%</option>
+              <option value="88.5">88% – 89%</option>
+              <option value="90.5">90% – 91%</option>
+              <option value="92.5">92% – 93%</option>
+              <option value="94.5">94% – 95%</option>
+              <option value="96.5">96% – 97%</option>
+              <option value="98.5">98% – 99%</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="annual-rate">Annual state aid per ADA student ($)</label>
+            <input type="number" id="annual-rate" placeholder="e.g. 9,000" min="1" step="1" />
+            <span class="hint">Your district's annual per-pupil state allocation</span>
+          </div>
+          <div class="calc-field">
+            <label for="enrollment">Total student enrollment</label>
+            <input type="number" id="enrollment" placeholder="e.g. 450" min="1" />
+          </div>
+          <button class="calc-submit" onclick="runCalc()">Calculate My Recovery →</button>
+        </div>
+        </product>
+
+        <!-- Results -->
+        <product id="b293b510-05cb-46e5-b7ab-16edf27783a7">
+        <div class="calc-results" id="calc-results">
+          <div class="result-placeholder" id="placeholder">
+            Fill in your numbers and hit Calculate to see your results.
+          </div>
+        </div>
+        </product>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <product id="ccd0c447-52c1-491d-94ee-5e877c9b76f1">
+  <section class="cta-banner">
+    <h2>Ready to start recovering that funding?</h2>
+    <p>Book a 30-minute demo and we'll show you exactly how it works.</p>
+    <a href="/demo" class="btn-primary btn-white">Book a Demo →</a>
+  </section>
+  </product>
+
+  <Footer tagline="Ed tech built by educators, for educators. Never a replacement — always an amplifier." />
+
+</Layout>
+</product>
+
+<script is:inline>
+  const STATES = {
+    arkansas: {
+      label: 'Arkansas',
+      disclaimer: 'Arkansas calculates state aid on Average Daily Attendance through its foundation funding formula, so this calculator maps closely to how your district is actually funded. The main difference is that Arkansas layers categorical funding on top of the base for special education, English learners, and gifted programs — meaning the revenue impact of an attendance improvement is somewhat higher for districts with larger populations in those categories than what the number above reflects.',
+    },
+    california: {
+      label: 'California',
+      disclaimer: 'California calculates state aid through the Local Control Funding Formula (LCFF) using Average Daily Attendance as its base, making this calculator a reasonable starting point. The gap is in the supplemental and concentration grants layered on top — districts receive additional funding for English learners, foster youth, and low-income students, and those amounts scale with the proportion of high-need students in the district. An attendance improvement among that population has an outsized effect compared to what this calculator shows. The number above reflects only the base ADA impact and will understate total recovery for districts serving a high proportion of those students.',
+    },
+    mississippi: {
+      label: 'Mississippi',
+      disclaimer: 'Mississippi calculates state aid through the Mississippi Adequate Education Program (MAEP) using Average Daily Attendance as its base. The calculator reflects what the formula says your district should receive — but the Mississippi legislature has fully funded MAEP in only a small number of years since the program was created. In most years, actual appropriations fall short of the formula amount, meaning the number above represents a ceiling, not a guarantee. Mississippi also applies categorical add-ons for special education, gifted programs, and vocational education on top of the base ADA calculation, so the revenue impact of an attendance improvement varies depending on the mix of students attending more consistently.',
+    },
+    missouri: {
+      label: 'Missouri',
+      disclaimer: 'Missouri calculates state aid on Weighted Average Daily Attendance (WADA), not straight ADA. Students in free/reduced lunch, special education, or English language learning programs count for more than 1.0 in the formula — so the actual revenue impact of an attendance improvement depends on who starts showing up, not just how many. This calculator treats all students equally, which means the number above could be higher or lower than what your district actually sees. Missouri also averages WADA over three years, so a single year of better attendance gets phased in gradually — the full financial effect plays out over two to three fiscal years, not all at once.',
+    },
+    texas: {
+      label: 'Texas',
+      disclaimer: 'Texas calculates state aid directly on Average Daily Attendance, so the calculator is a closer fit here than in some other states. The main gap is that Texas applies funding weights to students in special education, bilingual programs, and career and technical education — meaning the revenue impact of an attendance improvement depends partly on which students attend more consistently, not just the total count. Districts subject to recapture send a portion of their local tax revenue back to the state, which can offset gains in ADA funding. If your district falls into that category, the number above will overstate what actually stays in your budget.',
+    },
+  };
+
+  let selectedState = 'missouri';
+
+  function selectState(state, btn) {
+    selectedState = state;
+    document.querySelectorAll('.state-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const { disclaimer } = STATES[state];
+    document.getElementById('disclaimer-text').textContent = disclaimer;
+
+    // Reset results when state changes
+    document.getElementById('calc-results').innerHTML =
+      '<div class="result-placeholder" id="placeholder">Fill in your numbers and hit Calculate to see your results.</div>';
+  }
+
+  function getImprovementRate(adaPercent) {
+    if (adaPercent <= 85) return 0.040;
+    if (adaPercent <= 87) return 0.035;
+    if (adaPercent <= 89) return 0.030;
+    if (adaPercent <= 91) return 0.025;
+    if (adaPercent <= 93) return 0.020;
+    if (adaPercent <= 95) return 0.015;
+    if (adaPercent <= 97) return 0.010;
+    return 0.005;
+  }
+
+  function runCalc() {
+    const enrollment  = parseFloat(document.getElementById('enrollment').value);
+    const adaPercent  = parseFloat((document.getElementById('ada-rate')).value);
+    const adaRate     = adaPercent / 100;
+    const annualRate  = parseFloat(document.getElementById('annual-rate').value);
+
+    if ([enrollment, adaRate, annualRate].some(isNaN)) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    const improvement     = getImprovementRate(adaPercent);
+    const improvedRate    = Math.min(adaRate + improvement, 0.99);
+    const currentRevenue  = enrollment * adaRate     * annualRate;
+    const improvedRevenue = enrollment * improvedRate * annualRate;
+    const recovered       = improvedRevenue - currentRevenue;
+    const absencesAvoided = Math.round(enrollment * improvement * 180);
+
+    document.getElementById('calc-results').innerHTML = `
+      <div class="result-card highlight">
+        <div class="result-label">Estimated annual recovery</div>
+        <div class="result-value">${fmt(recovered)}</div>
+        <div class="result-sub">Based on a ${(improvement * 100).toFixed(1)}% ADA improvement with Nifty</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Absences avoided per year</div>
+        <div class="result-value">${absencesAvoided.toLocaleString()}</div>
+        <div class="result-sub">Student-days kept in the classroom</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">Gray hairs on your attendance clerk's head</div>
+        <div class="result-value">30% fewer</div>
+        <div class="result-sub">We can't prove it. But we believe it. 😅</div>
+      </div>
+    `;
+  }
+
+  function fmt(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+</script>

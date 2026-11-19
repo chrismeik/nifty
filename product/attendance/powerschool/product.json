@@ -1,0 +1,9 @@
+{
+  "id": "4b464a64-ed9e-4865-a4b4-e2939586edb8",
+  "name": "powerschool",
+  "type": "product",
+  "description": "PowerSchool SIS integration — pull, stage, and standardize attendance data",
+  "status": "active",
+  "parents": ["43d63153-724c-46d9-bd33-767830cc0038"],
+  "children": []
+}

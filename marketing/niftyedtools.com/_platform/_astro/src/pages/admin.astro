@@ -1,0 +1,301 @@
+---
+import Layout from '../components/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Leads — Nifty Admin" description="">
+<product id="a3f2d871-6c49-4b85-e0d3-2f7a1c8b5e94">
+  <style is:global>
+    @import "../styles/_tokens.css";
+
+    .admin-wrap { max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem 5rem; }
+
+    .admin-stats {
+      display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;
+    }
+    .stat-card {
+      background: white; border: 1px solid var(--slate-200);
+      border-radius: 12px; padding: 1rem 1.5rem;
+      display: flex; flex-direction: column; gap: 0.2rem;
+    }
+    .stat-label { font-size: 0.72rem; font-weight: 700; color: var(--slate-400); letter-spacing: 0.04em; text-transform: uppercase; }
+    .stat-value { font-size: 1.6rem; font-weight: 800; color: var(--slate-900); }
+
+    .admin-table-wrap {
+      background: white; border: 1px solid var(--slate-200);
+      border-radius: 16px; overflow-x: auto;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    thead { background: var(--slate-50); }
+    th {
+      padding: 0.75rem 1rem; text-align: left;
+      font-size: 0.72rem; font-weight: 700; color: var(--slate-500);
+      letter-spacing: 0.04em; text-transform: uppercase;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    td { padding: 0.85rem 1rem; color: var(--slate-700); border-bottom: 1px solid var(--slate-100); vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tr.new-row { animation: flash 1.5s ease-out; }
+    @keyframes flash {
+      0%   { background: #fff7ed; }
+      100% { background: transparent; }
+    }
+
+    .admin-empty { padding: 3rem; text-align: center; color: var(--slate-400); font-size: 0.9rem; }
+
+    .group-cell { display: flex; align-items: center; gap: 0.5rem; }
+    .group-badge {
+      display: inline-block; padding: 0.2rem 0.6rem;
+      background: var(--slate-100); color: var(--slate-700);
+      border-radius: 99px; font-size: 0.75rem; font-weight: 700;
+    }
+    .source-badge {
+      display: inline-block; padding: 0.2rem 0.6rem;
+      border-radius: 99px; font-size: 0.75rem; font-weight: 700;
+      background: var(--slate-100); color: var(--slate-600);
+    }
+    .source-badge.source-raffle { background: #fef3c7; color: #92400e; }
+    .source-badge.source-quote  { background: #dbeafe; color: #1e40af; }
+    .source-badge.source-demo   { background: #dcfce7; color: #166534; }
+    .source-badge.source-specialist { background: #f3e8ff; color: #6b21a8; }
+
+    .edit-btn {
+      background: none; border: 1px solid var(--slate-200);
+      border-radius: 6px; padding: 0.2rem 0.5rem;
+      font-size: 0.7rem; color: var(--slate-400); cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .edit-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Modal */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.4); z-index: 1000;
+      align-items: center; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white; border-radius: 16px; padding: 2rem;
+      width: 320px; box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      display: flex; flex-direction: column; gap: 1.25rem;
+    }
+    .modal-title { font-size: 1rem; font-weight: 800; color: var(--slate-900); margin-bottom: 0.25rem; }
+    .modal-sub { font-size: 0.8rem; color: var(--slate-500); }
+    .modal select {
+      width: 100%; padding: 0.7rem 1rem;
+      border: 1.5px solid var(--slate-200); border-radius: 8px;
+      font-size: 0.95rem; color: var(--slate-800);
+      background: white; appearance: none; cursor: pointer;
+    }
+    .modal select:focus { outline: none; border-color: var(--accent); }
+    .modal-actions { display: flex; gap: 0.75rem; justify-content: flex-end; }
+    .btn-cancel {
+      padding: 0.6rem 1.1rem; border: 1px solid var(--slate-200);
+      border-radius: 8px; background: white; color: var(--slate-600);
+      font-size: 0.875rem; font-weight: 600; cursor: pointer;
+    }
+    .btn-save {
+      padding: 0.6rem 1.1rem; border: none;
+      border-radius: 8px; background: var(--accent); color: white;
+      font-size: 0.875rem; font-weight: 700; cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-save:hover { background: var(--accent-hover); }
+    .btn-save:disabled { opacity: 0.6; cursor: not-allowed; }
+  </style>
+
+  <Nav />
+
+  <div class="admin-wrap">
+    <div class="admin-stats">
+      <div class="stat-card">
+        <div class="stat-label">Total Leads</div>
+        <div class="stat-value" id="stat-total">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Raffle</div>
+        <div class="stat-value" id="stat-raffle">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Quote</div>
+        <div class="stat-value" id="stat-quote">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Demo / Specialist</div>
+        <div class="stat-value" id="stat-demo">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Last Updated</div>
+        <div class="stat-value" id="last-updated" style="font-size:1rem;padding-top:0.3rem;">—</div>
+      </div>
+    </div>
+
+    <div class="admin-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Raffle Group</th>
+            <th>Source</th>
+            <th>District</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>SIS</th>
+            <th>Students</th>
+            <th>Demo Availability</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody id="leads-body">
+          <tr><td colspan="7" class="admin-empty">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Edit modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div>
+        <div class="modal-title">Update Raffle Group</div>
+        <div class="modal-sub" id="modal-name"></div>
+      </div>
+      <select id="modal-select">
+        <option value="1">Group 1</option>
+        <option value="2">Group 2</option>
+        <option value="3">Group 3</option>
+        <option value="4">Group 4</option>
+        <option value="5">Group 5</option>
+      </select>
+      <div class="modal-actions">
+        <button class="btn-cancel" id="modal-cancel">Cancel</button>
+        <button class="btn-save" id="modal-save">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <Footer tagline="Ed tech built by educators, for educators. Never a replacement — always an amplifier." />
+</product>
+</Layout>
+
+<script is:inline>
+  (function() {
+    const CREDS = btoa('admin:natedog');
+    if (sessionStorage.getItem('admin_auth') !== CREDS) {
+      const user = prompt('Username:');
+      const pass = prompt('Password:');
+      if (btoa(user.toLowerCase() + ':' + pass.toLowerCase()) !== CREDS) {
+        document.body.innerHTML = '<p style="font-family:sans-serif;padding:2rem;color:#666">Access denied.</p>';
+        return;
+      }
+      sessionStorage.setItem('admin_auth', CREDS);
+    }
+  })();
+
+  let knownIds = new Set();
+  let editingLeadId = null;
+
+  function formatTime(iso) {
+    const diff = Math.floor((Date.now() - new Date(iso)) / 1000);
+    if (diff < 60)                   return `${diff}s ago`;
+    if (diff < 3600)                 return `${Math.floor(diff / 60)}m ago`;
+    if (diff < 86400)                return `${Math.floor(diff / 3600)}h ago`;
+    if (diff < 86400 * 30)           return `${Math.floor(diff / 86400)}d ago`;
+    if (diff < 86400 * 365)          return `${Math.floor(diff / (86400 * 30))}mo ago`;
+    return `${Math.floor(diff / (86400 * 365))}y ago`;
+  }
+
+  function render(leads, isUpdate) {
+    const tbody = document.getElementById('leads-body');
+    const newIds = new Set(leads.map(l => l.id));
+
+    if (leads.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="10" class="admin-empty">No leads yet.</td></tr>';
+    } else {
+      tbody.innerHTML = leads.map(l => {
+        const isNew = isUpdate && !knownIds.has(l.id);
+        const raffleCell = l.raffle_group != null
+          ? `<div class="group-cell">
+               <span class="group-badge" id="group-${l.id}">${l.raffle_group}</span>
+               <button class="edit-btn" onclick="openModal('${l.id}', '${l.name}', ${l.raffle_group})">Edit</button>
+             </div>`
+          : '—';
+        return `<tr class="${isNew ? 'new-row' : ''}">
+          <td><strong>${l.name}</strong></td>
+          <td>${raffleCell}</td>
+          <td><span class="source-badge source-${l.source || 'unknown'}">${l.source || '—'}</span></td>
+          <td>${l.district_name}</td>
+          <td>${l.phone_number}</td>
+          <td>${l.email || '—'}</td>
+          <td>${l.sis_name || '—'}</td>
+          <td>${l.student_count != null ? l.student_count.toLocaleString() : '—'}</td>
+          <td>${l.demo_availability || '—'}</td>
+          <td>${formatTime(l.created_at)}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    knownIds = newIds;
+
+    document.getElementById('stat-total').textContent = leads.length;
+    document.getElementById('stat-raffle').textContent = leads.filter(l => l.source === 'raffle').length;
+    document.getElementById('stat-quote').textContent = leads.filter(l => l.source === 'quote').length;
+    document.getElementById('stat-demo').textContent = leads.filter(l => l.source === 'demo' || l.source === 'specialist').length;
+    document.getElementById('last-updated').textContent = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+  }
+
+  async function poll(isUpdate) {
+    try {
+      const res = await fetch('/api/marketing/leads');
+      if (!res.ok) throw new Error(res.status);
+      const leads = await res.json();
+      render(leads, isUpdate);
+    } catch {
+      document.getElementById('last-updated').textContent = 'Error';
+    }
+  }
+
+  function openModal(leadId, name, currentGroup) {
+    editingLeadId = leadId;
+    document.getElementById('modal-name').textContent = name;
+    document.getElementById('modal-select').value = currentGroup;
+    document.getElementById('modal-overlay').classList.add('open');
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    editingLeadId = null;
+  }
+
+  document.getElementById('modal-cancel').addEventListener('click', closeModal);
+  document.getElementById('modal-overlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+  });
+
+  document.getElementById('modal-save').addEventListener('click', async () => {
+    const btn = document.getElementById('modal-save');
+    const group = parseInt(document.getElementById('modal-select').value);
+    btn.disabled = true;
+    btn.textContent = 'Saving…';
+    try {
+      const res = await fetch(`/api/marketing/leads/${editingLeadId}/raffle-group`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ raffle_group: group }),
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const badge = document.getElementById(`group-${editingLeadId}`);
+      if (badge) badge.textContent = group;
+      closeModal();
+      poll(false);
+    } catch {
+      alert('Failed to update. Please try again.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Save';
+    }
+  });
+
+  poll(false);
+  setInterval(() => poll(true), 5000);
+</script>

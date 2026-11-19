@@ -1,0 +1,391 @@
+---
+import Layout from '../components/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ProductPageStyles from '../components/ProductPageStyles.astro';
+import { smsMessages } from '../data/smsMessages';
+
+const [msgAbsence, msgEncouragement, msgTrajectory, msgStreak, msgReport] = smsMessages;
+---
+<Layout
+  title="Nifty Attendance™ — Recover ADA Funding Through Better Parent Communication"
+  description="Nifty Attendance™ closes the communication loop between school and home — and puts missed ADA funding back in your budget."
+>
+<product id="c3e8a142-7f56-4b29-d1e0-9a6f3b8c0e51">
+  <style is:global>
+    @import "../styles/_tokens.css";
+
+    /* ── MESSAGE SECTIONS ────────────────────────────────────── */
+    .msg-section {
+      padding: 5rem 1.5rem;
+    }
+    .msg-section.alt { background: var(--slate-50); }
+    .msg-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .msg-inner.reverse { direction: rtl; }
+    .msg-inner.reverse > * { direction: ltr; }
+    @media (max-width: 760px) {
+      .msg-inner, .msg-inner.reverse { grid-template-columns: 1fr; gap: 2.5rem; direction: ltr; }
+    }
+
+    .msg-content { display: flex; flex-direction: column; gap: 1.25rem; }
+    .msg-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.25);
+      border-radius: 999px; padding: 0.3rem 0.85rem;
+      font-size: 0.72rem; font-weight: 700; color: var(--accent);
+      letter-spacing: 0.05em; text-transform: uppercase; width: fit-content;
+    }
+    .msg-heading {
+      font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 800;
+      color: var(--slate-900); line-height: 1.2;
+    }
+    .msg-body {
+      font-size: 1.02rem; color: var(--slate-500); line-height: 1.7; max-width: 480px;
+    }
+
+    /* ── iPhone preview (standalone, not inside carousel) ───── */
+    .sms-preview {
+      border-radius: 15px; overflow: hidden;
+      border: 1px solid #d1d5db;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      max-width: 320px; width: 100%; margin: 0 auto;
+    }
+    .sms-header {
+      background: #f9f9f9; border-bottom: 1px solid #e5e7eb;
+      padding: 0.5rem 0.75rem;
+      display: flex; align-items: center; gap: 0.45rem;
+    }
+    .sms-back { color: #007aff; font-size: 0.85rem; }
+    .sms-avatar {
+      width: 1.5rem; height: 1.5rem; border-radius: 50%;
+      background: #6b7280; color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.56rem; font-weight: 700; flex-shrink: 0;
+    }
+    .sms-contact { display: flex; flex-direction: column; flex: 1; }
+    .sms-contact-name { font-size: 0.6rem; font-weight: 600; color: #111827; }
+    .sms-contact-sub  { font-size: 0.51rem; color: #6b7280; }
+    .sms-body {
+      background: #ffffff; padding: 0.75rem 0.75rem 0.94rem;
+      display: flex; flex-direction: column; gap: 0.3rem;
+    }
+    .sms-timestamp { text-align: center; font-size: 0.51rem; color: #9ca3af; margin-bottom: 0.2rem; }
+    .sms-bubble-row { display: flex; align-items: flex-end; gap: 0.3rem; }
+    .sms-bubble {
+      background: #e5e5ea; border-radius: 14px 14px 14px 3px;
+      padding: 0.45rem 0.7rem;
+      font-size: 0.64rem; color: #111827; line-height: 1.55;
+      white-space: pre-wrap; max-width: 88%;
+    }
+    .sms-bubble .sms-phone { color: #007aff; text-decoration: underline; }
+    .sms-bubble .sms-divider { color: #9ca3af; }
+    .sms-footer {
+      background: #f9f9f9; border-top: 1px solid #e5e7eb;
+      padding: 0.375rem 0.56rem;
+      display: flex; align-items: center; gap: 0.375rem;
+    }
+    .sms-input-bar {
+      flex: 1; background: white; border: 1px solid #d1d5db;
+      border-radius: 999px; padding: 0.25rem 0.65rem;
+      font-size: 0.6rem; color: #9ca3af;
+    }
+    .sms-send-btn {
+      width: 1.3rem; height: 1.3rem; border-radius: 50%;
+      background: #007aff; color: white; border: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem;
+    }
+
+    /* ── Coming Soon tag + image card ───────────────────────── */
+    .msg-tag-cs {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(109,40,217,0.08); border: 1px solid rgba(109,40,217,0.25);
+      border-radius: 999px; padding: 0.3rem 0.85rem;
+      font-size: 0.72rem; font-weight: 700; color: #7c3aed;
+      letter-spacing: 0.05em; text-transform: uppercase; width: fit-content;
+    }
+    .img-preview {
+      border-radius: 15px; overflow: hidden;
+      border: 1px solid #d1d5db;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      max-width: 320px; width: 100%; margin: 0 auto;
+      position: relative;
+    }
+    .img-preview img {
+      width: 100%; display: block;
+      object-fit: cover; object-position: top;
+      height: 280px;
+    }
+    .img-gradient-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 50%;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
+      display: flex; align-items: flex-end; justify-content: center;
+      padding-bottom: 1rem;
+    }
+    .img-gradient-label {
+      color: white; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    /* ── CTA ─────────────────────────────────────────────────── */
+    .att-cta {
+      background: linear-gradient(135deg, #c2410c 0%, #f97316 100%);
+      padding: 5rem 1.5rem; text-align: center;
+    }
+    .att-cta h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 900;
+      color: white; margin-bottom: 1rem; line-height: 1.2;
+    }
+    .att-cta p { font-size: 1.05rem; color: rgba(255,255,255,0.78); margin-bottom: 2.25rem; max-width: 540px; margin-left: auto; margin-right: auto; }
+  </style>
+
+  <ProductPageStyles />
+  <Nav />
+
+  <!-- HERO -->
+  <product id="d7b4f923-1a85-4e67-c2d0-5f8e9a1b3c64">
+  <section class="page-hero">
+    <h1>Every empty seat costs your district money.<br/><span>Nifty Attendance&#8482; fills the gap.</span></h1>
+    <p>When parents stay informed, students show up. Nifty Attendance&#8482; closes the communication loop between school and home — and puts missed ADA funding back in your budget.</p>
+  </section>
+  </product>
+
+  <!-- SECTION 1: Unexcused Absence -->
+  <product id="e2c6a081-4d73-4f58-b9e3-7a1d2c5f8e30">
+  <section class="msg-section">
+    <div class="msg-inner">
+      <div class="msg-content">
+        <span class="msg-tag">📬 Unexcused Absence</span>
+        <h2 class="msg-heading">Turn unexcused absences into a conversation</h2>
+        <p class="msg-body">Nifty puts the ball in the parent's court. Each absence notification includes the school's contact number and the student's running attendance totals — so parents aren't surprised, and the school isn't the only one keeping track.</p>
+      </div>
+      <div class="sms-preview">
+        <div class="sms-header">
+          <span class="sms-back">‹</span>
+          <div class="sms-avatar">NA</div>
+          <div class="sms-contact">
+            <div class="sms-contact-name">Nifty Attendance</div>
+            <div class="sms-contact-sub">Text Message</div>
+          </div>
+        </div>
+        <div class="sms-body">
+          <div class="sms-timestamp">Today 8:03 AM</div>
+          <div class="sms-bubble-row">
+            <div class="sms-bubble" set:html={msgAbsence.message} />
+          </div>
+        </div>
+        <div class="sms-footer">
+          <div class="sms-input-bar">Text Message</div>
+          <button class="sms-send-btn">↑</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  </product>
+
+  <!-- SECTION 2: Trajectory Warning -->
+  <product id="a8e2c654-9b17-4d83-f6a1-3c7d0e5b9f28">
+  <section class="msg-section alt">
+    <div class="msg-inner reverse">
+      <div class="msg-content">
+        <span class="msg-tag">📊 Early Warning</span>
+        <h2 class="msg-heading">Catch problems before they become crises</h2>
+        <p class="msg-body">When a student's absence rate puts them on track to run out of excused absences before the year ends, Nifty alerts parents early — while there's still time to make changes and get support from the school.</p>
+      </div>
+      <div class="sms-preview">
+        <div class="sms-header">
+          <span class="sms-back">‹</span>
+          <div class="sms-avatar">NA</div>
+          <div class="sms-contact">
+            <div class="sms-contact-name">Nifty Attendance</div>
+            <div class="sms-contact-sub">Text Message</div>
+          </div>
+        </div>
+        <div class="sms-body">
+          <div class="sms-timestamp">Today 8:03 AM</div>
+          <div class="sms-bubble-row">
+            <div class="sms-bubble" set:html={msgTrajectory.message} />
+          </div>
+        </div>
+        <div class="sms-footer">
+          <div class="sms-input-bar">Text Message</div>
+          <button class="sms-send-btn">↑</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  </product>
+
+  <!-- SECTION 3: Streak Nudge -->
+  <product id="f1d5b792-3e84-4a69-c8f0-6b2e9d4a7c15">
+  <section class="msg-section">
+    <div class="msg-inner">
+      <div class="msg-content">
+        <span class="msg-tag">🔥 Streak Building</span>
+        <h2 class="msg-heading">Encouragement, not just enforcement</h2>
+        <p class="msg-body">Not every message needs to be a warning. When a student misses time, Nifty sends a warm note to parents acknowledging the absence and reminding them of the streak they've built — making it easy to stay motivated instead of checked out.</p>
+      </div>
+      <div class="sms-preview">
+        <div class="sms-header">
+          <span class="sms-back">‹</span>
+          <div class="sms-avatar">NA</div>
+          <div class="sms-contact">
+            <div class="sms-contact-name">Nifty Attendance</div>
+            <div class="sms-contact-sub">Text Message</div>
+          </div>
+        </div>
+        <div class="sms-body">
+          <div class="sms-timestamp">Today 8:03 AM</div>
+          <div class="sms-bubble-row">
+            <div class="sms-bubble" set:html={msgEncouragement.message} />
+          </div>
+        </div>
+        <div class="sms-footer">
+          <div class="sms-input-bar">Text Message</div>
+          <button class="sms-send-btn">↑</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  </product>
+
+  <!-- SECTION 4: Streak Celebration -->
+  <product id="b9f3d765-2c48-4e94-a7b2-4d8f1e6c0a39">
+  <section class="msg-section alt">
+    <div class="msg-inner reverse">
+      <div class="msg-content">
+        <span class="msg-tag">🏆 Streak Celebration</span>
+        <h2 class="msg-heading">Celebrate the wins, not just the problems</h2>
+        <p class="msg-body">Most school communication with parents is about problems. Nifty flips that. When a student is on a roll, families hear about it — turning consistent attendance into something the whole family takes pride in.</p>
+      </div>
+      <div class="sms-preview">
+        <div class="sms-header">
+          <span class="sms-back">‹</span>
+          <div class="sms-avatar">NA</div>
+          <div class="sms-contact">
+            <div class="sms-contact-name">Nifty Attendance</div>
+            <div class="sms-contact-sub">Text Message</div>
+          </div>
+        </div>
+        <div class="sms-body">
+          <div class="sms-timestamp">Today 8:03 AM</div>
+          <div class="sms-bubble-row">
+            <div class="sms-bubble" set:html={msgStreak.message} />
+          </div>
+        </div>
+        <div class="sms-footer">
+          <div class="sms-input-bar">Text Message</div>
+          <button class="sms-send-btn">↑</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  </product>
+
+  <!-- SECTION 5: Monthly Admin Report -->
+  <product id="c0a4e876-3d59-4f05-b8c3-5e9a2f7d1b46">
+  <section class="msg-section">
+    <div class="msg-inner">
+      <div class="msg-content">
+        <span class="msg-tag">📈 ROI Report</span>
+        <h2 class="msg-heading">District-wide visibility, delivered monthly</h2>
+        <p class="msg-body">Every month, administrators receive a district-wide attendance summary showing how rates have shifted year-over-year, the funding already recovered, and what the full-year projection looks like if current trends hold.</p>
+      </div>
+      <div class="sms-preview">
+        <div class="sms-header">
+          <span class="sms-back">‹</span>
+          <div class="sms-avatar">NA</div>
+          <div class="sms-contact">
+            <div class="sms-contact-name">Nifty Attendance</div>
+            <div class="sms-contact-sub">Text Message</div>
+          </div>
+        </div>
+        <div class="sms-body">
+          <div class="sms-timestamp">Today 8:03 AM</div>
+          <div class="sms-bubble-row">
+            <div class="sms-bubble" set:html={msgReport.message} />
+          </div>
+        </div>
+        <div class="sms-footer">
+          <div class="sms-input-bar">Text Message</div>
+          <button class="sms-send-btn">↑</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  </product>
+
+  <!-- SECTION 6: Truancy Letters (Coming Soon) -->
+  <product id="a3f7e291-6c84-4b52-d9e0-8f1a2b4c5d6e">
+  <section class="msg-section alt">
+    <div class="msg-inner reverse">
+      <div class="msg-content">
+        <span class="msg-tag-cs">📄 Coming Soon</span>
+        <h2 class="msg-heading">Generate compliance letters automatically</h2>
+        <p class="msg-body">Nifty will track attendance against local rules, auto-generate state-compliant truancy letters, and email them directly to your office staff — no paperwork, no missed notices.</p>
+      </div>
+      <div class="img-preview">
+        <img src="/truancy.png" alt="Truancy letter document" />
+        <div class="img-gradient-overlay">
+          <span class="img-gradient-label">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  </product>
+
+  <!-- SECTION 7: Attendance Certificates (Coming Soon) -->
+  <product id="b4e8f302-7d95-4c63-e0f1-9a2b3c4d5e6f">
+  <section class="msg-section">
+    <div class="msg-inner">
+      <div class="msg-content">
+        <span class="msg-tag-cs">🎓 Coming Soon</span>
+        <h2 class="msg-heading">Reward perfect attendance, effortlessly</h2>
+        <p class="msg-body">Reward perfect and improved attendance with printable certificates. Nifty generates them automatically — ready for teachers to hand out at the end of every month, term, or school year.</p>
+      </div>
+      <div class="img-preview">
+        <img src="/certificates.png" alt="Attendance certificate" />
+        <div class="img-gradient-overlay">
+          <span class="img-gradient-label">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  </product>
+
+  <!-- SECTION 8: Attendance Reports (Coming Soon) -->
+  <product id="c5f9a413-8e06-4d74-f1a2-0b3c4d5e6f7a">
+  <section class="msg-section alt">
+    <div class="msg-inner reverse">
+      <div class="msg-content">
+        <span class="msg-tag-cs">📈 Coming Soon</span>
+        <h2 class="msg-heading">A full reporting suite, delivered on your schedule</h2>
+        <p class="msg-body">A full suite of attendance and ADA funding reports — delivered to your inbox on a schedule you set. Weekly summaries, monthly deep-dives, and year-end projections, all in one place.</p>
+      </div>
+      <div class="img-preview">
+        <img src="/reports.png" alt="Attendance reports" />
+        <div class="img-gradient-overlay">
+          <span class="img-gradient-label">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  </product>
+
+  <!-- CTA -->
+  <product id="d1b5f987-4e6a-4016-c9d4-6f0b3a8e2c57">
+  <section class="att-cta">
+    <h2>See Nifty Attendance&#8482; in action</h2>
+    <p>Book a 30-minute walkthrough with our team. No sales pitch — just a live look at how Nifty works and what it could mean for your district's funding.</p>
+    <a href="/demo" class="btn-white">Book a Demo →</a>
+  </section>
+  </product>
+
+  <Footer tagline="Ed tech built by educators, for educators. Never a replacement — always an amplifier." />
+
+</product>
+</Layout>

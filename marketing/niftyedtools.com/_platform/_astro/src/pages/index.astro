@@ -1,0 +1,449 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import SmsCarousel from '../components/SmsCarousel.astro';
+import FundingCta from '../components/FundingCta.astro';
+
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Nifty — Attendance Alerts for Schools</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <style is:global>
+    @import "../styles/_tokens.css";
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #fff; color: var(--slate-800); }
+
+    /* <product id="88afe2a3-5054-4e71-93cd-76c472680c30"> */
+    .hero {
+      background: linear-gradient(150deg, var(--brand-950) 0%, var(--brand-900) 55%, var(--brand-700) 100%);
+      padding: 2.5rem 2rem 4rem;
+    }
+    .hero-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    @media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; gap: 3rem; } }
+    /* </product> */
+
+    /* <product id="3d0188e3-2d19-4e2e-9d5a-e1de8bc0ae56"> */
+    .hero-badge {
+      display: inline-block;
+      background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.4);
+      border-radius: 999px; padding: 0.3rem 0.9rem;
+      font-size: 0.75rem; font-weight: 600; color: var(--accent);
+      letter-spacing: 0.05em; margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 3.8vw, 2.8rem); font-weight: 900;
+      color: white; line-height: 1.1; margin-bottom: 1.25rem;
+    }
+    .hero h1 span { color: var(--accent); white-space: nowrap; }
+    .hero-sub {
+      font-size: 1.05rem; color: rgba(255,255,255,0.78);
+      line-height: 1.7; margin-bottom: 2rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: white;
+      text-decoration: none; padding: 0.8rem 1.75rem;
+      border-radius: 8px; font-size: 0.95rem; font-weight: 700;
+      transition: background 0.15s, transform 0.1s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent; border: 2px solid rgba(255,255,255,0.4);
+      color: white; text-decoration: none; padding: 0.8rem 1.75rem;
+      border-radius: 8px; font-size: 0.95rem; font-weight: 600;
+      transition: border-color 0.15s, transform 0.1s;
+    }
+    .btn-ghost:hover { border-color: white; transform: translateY(-2px); }
+    @media (max-width: 540px) {
+      .hero h1 { font-size: 2.1rem; }
+      .btn-primary, .btn-ghost { padding: 0.6rem 1.2rem; font-size: 0.82rem; }
+    }
+    /* </product> */
+
+    /* stat card styles live in HeroStats.astro */
+
+    /* SECTIONS */
+    .section { padding: 5rem 2rem; }
+    .section-alt { background: var(--slate-50); }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem;
+    }
+    .section-heading {
+      font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 800;
+      color: var(--slate-950); line-height: 1.2; margin-bottom: 1rem;
+    }
+    .section-sub { font-size: 1rem; color: var(--slate-500); line-height: 1.7; max-width: 560px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+
+    /* <product id="b4167a0e-e4fd-4d54-8039-69a33e9c9ad5"> */
+    .problem-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+    }
+    @media (max-width: 860px) { .problem-grid { grid-template-columns: 1fr; gap: 3rem; } }
+    /* </product> */
+
+    /* <product id="51dfa85f-2da8-480a-8469-c87de3be471b"> */
+    .problem-pains { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+    .pain-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .pain-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--brand-50); color: var(--brand-900);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .pain-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--slate-950); margin-bottom: 0.25rem; }
+    .pain-item p { font-size: 0.875rem; color: var(--slate-500); line-height: 1.6; }
+    /* </product> */
+
+    /* <product id="8c245d2a-3b39-4740-87c2-9430a392ead0"> */
+    .problem-callout {
+      background: #fff7ed; border: 2px solid var(--accent); border-radius: 16px; padding: 2.5rem;
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .problem-callout blockquote {
+      font-size: 1.05rem; color: #431407;
+      line-height: 1.7; font-style: italic;
+    }
+    .problem-callout cite { display: flex; align-items: center; gap: 0.875rem; font-style: normal; }
+    .cite-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: #fed7aa; color: #7c2d12;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+    }
+    .cite-name { font-size: 0.875rem; font-weight: 700; color: #431407; }
+    .cite-role { font-size: 0.78rem; color: #9a3412; margin-top: 1px; }
+    /* </product> */
+
+    /* <product id="bed5d493-dca7-48bb-b36b-3ae8ae4ffea7"> */
+    .hiw-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem;
+    }
+    .hiw-grid > *, .hiw-grid > product { display: block; min-width: 0; }
+    @media (max-width: 860px) { .hiw-grid { grid-template-columns: 1fr; gap: 3rem; } }
+    .steps { display: flex; flex-direction: column; gap: 2.5rem; }
+    .step { position: relative; }
+    .step-num {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--accent); color: white;
+      font-size: 1.1rem; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .step h3 { font-size: 1rem; font-weight: 700; color: var(--slate-950); margin-bottom: 0.5rem; }
+    .step p { font-size: 0.875rem; color: var(--slate-500); line-height: 1.6; }
+    .step-detail {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.75rem; color: var(--slate-500); font-weight: 600; margin-top: 0.875rem;
+    }
+    .step-detail::before {
+      content: '✓';
+      color: var(--accent); font-weight: 900; font-size: 0.85rem;
+    }
+    /* </product> */
+
+    /* <product id="8ef04ae1-a51f-4efb-91cf-b7c40520f19c"> */
+    .testimonial-carousel { position: relative; max-width: 760px; margin: 3rem auto 0; overflow: hidden; }
+    .testimonial-track {
+      display: flex; transition: transform 0.4s ease;
+    }
+    .testimonial-slide {
+      min-width: 100%; box-sizing: border-box;
+      background: var(--slate-50); border: 1px solid var(--slate-200);
+      border-radius: 16px; padding: 2.5rem;
+    }
+    .stars { color: var(--amber-400); font-size: 1.1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+    .testimonial-slide blockquote {
+      font-size: 1.15rem; color: var(--slate-950); line-height: 1.7;
+      font-style: italic; margin-bottom: 1.5rem;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 0.875rem; }
+    .t-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 700; color: white; flex-shrink: 0;
+    }
+    .t-name { font-size: 0.9rem; font-weight: 700; color: var(--slate-950); }
+    .t-role { font-size: 0.78rem; color: var(--slate-500); margin-top: 1px; }
+    .carousel-nav {
+      display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.5rem;
+    }
+    .carousel-btn {
+      background: none; border: 1px solid var(--slate-300); border-radius: 50%;
+      width: 36px; height: 36px; cursor: pointer; font-size: 1rem; color: var(--slate-600);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .carousel-btn:hover { background: var(--slate-100); border-color: var(--slate-400); }
+    .carousel-dots { display: flex; gap: 0.5rem; }
+    .carousel-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--slate-300); border: none; cursor: pointer; padding: 0;
+      transition: background 0.2s;
+    }
+    .carousel-dot.active { background: var(--brand-600); }
+    /* </product> */
+
+    /* <product id="9e59d01c-a40f-43f9-92cf-3dd811d1b610"> */
+    .index-cta-banner {
+      background: linear-gradient(135deg, #c2410c 0%, #f97316 100%);
+      padding: 5rem 1.5rem; text-align: center;
+    }
+    .index-cta-banner h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 900;
+      color: white; margin-bottom: 1rem; line-height: 1.2;
+    }
+    .index-cta-banner p { font-size: 1.05rem; color: rgba(255,255,255,0.75); margin-bottom: 2.25rem; }
+    .btn-white {
+      display: inline-block; background: white; color: var(--brand-900);
+      padding: 0.85rem 2rem; border-radius: 8px;
+      font-size: 1rem; font-weight: 800; text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn-white:hover { opacity: 0.9; }
+    /* </product> */
+  </style>
+</head>
+<body>
+<product id="358e5fa5-a8ee-4b2d-a19d-f21dcac65fb3">
+  <Nav />
+
+  <!-- HERO -->
+  <product id="88afe2a3-5054-4e71-93cd-76c472680c30">
+  <section class="hero">
+    <div class="hero-inner">
+      <product id="3d0188e3-2d19-4e2e-9d5a-e1de8bc0ae56">
+      <div>
+        <div class="hero-badge">Built for school office staff</div>
+        <h1>Increase ADA with<br/><span>Nifty Attendance<sup style="font-size:0.75em;font-weight:700;vertical-align:super;line-height:0">&#8482;</sup></span></h1>
+        <p class="hero-sub">
+          Nifty notifies families of unexcused absences and gives parents real-time visibility into their child's attendance — turning missed days into recovered ADA funding and keeping students in school.
+        </p>
+        <div class="hero-actions">
+          <a href="/attendance" class="btn-primary">See it in Action →</a>
+          <a href="#how-it-works" class="btn-ghost">See How It Works</a>
+        </div>
+      </div>
+      </product>
+      <FundingCta id="5a7c6e9a-4ad7-4f89-9a2b-87557ab5c472" />
+    </div>
+  </section>
+  </product>
+
+  <!-- PROBLEM -->
+  <product id="b4167a0e-e4fd-4d54-8039-69a33e9c9ad5">
+  <section class="section">
+    <div class="container">
+      <div class="problem-grid">
+        <product id="51dfa85f-2da8-480a-8469-c87de3be471b">
+        <div>
+          <p class="eyebrow">The Problem</p>
+          <h2 class="section-heading">Chronic absenteeism is costing your school — every single day.</h2>
+          <p class="section-sub">Every unexcused absence is a missed opportunity to intervene. And when absences go unchecked, your ADA funding takes the hit.</p>
+          <div class="problem-pains">
+            <div class="pain-item">
+              <div class="pain-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+              </div>
+              <div>
+                <h4>Each missed day is lost revenue</h4>
+                <p>ADA funding is calculated on attendance. A student who misses 10 days costs your school hundreds of dollars. Multiply that across your roster and it adds up fast.</p>
+              </div>
+            </div>
+            <div class="pain-item">
+              <div class="pain-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+              </div>
+              <div>
+                <h4>Interventions only work if they happen early</h4>
+                <p>By the time chronic absenteeism shows up in a report, the pattern is already set. Early outreach on day one is the only thing that changes outcomes.</p>
+              </div>
+            </div>
+            <div class="pain-item">
+              <div class="pain-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+              </div>
+              <div>
+                <h4>No system means no consistency</h4>
+                <p>When follow-up depends on who has time that morning, some families never get contacted at all. Nifty makes sure every absence gets a response, every time.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </product>
+        <product id="8c245d2a-3b39-4740-87c2-9430a392ead0">
+        <div class="problem-callout">
+          <blockquote>
+            "Before Nifty, chronic absenteeism was eating into our ADA funding and we had no good way to catch it early. Now we're reaching families the same morning and our attendance rate has climbed every quarter since we started."
+          </blockquote>
+          <cite>
+            <div class="cite-avatar">MR</div>
+            <div>
+              <div class="cite-name">Maria R.</div>
+              <div class="cite-role">Principal, Crestview Charter School</div>
+            </div>
+          </cite>
+        </div>
+        </product>
+      </div>
+    </div>
+  </section>
+  </product>
+
+  <!-- HOW IT WORKS -->
+  <product id="bed5d493-dca7-48bb-b36b-3ae8ae4ffea7">
+  <section class="section section-alt" id="how-it-works">
+    <div class="container">
+      <div class="section-header center">
+        <p class="eyebrow">How It Works</p>
+        <h2 class="section-heading">Here's what happens when a student misses school.</h2>
+        <p class="section-sub">From the moment a student is marked absent, Nifty handles the rest.</p>
+      </div>
+      <div class="hiw-grid">
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Nifty detects the absence and notifies parents</h3>
+            <p>Once attendance is submitted, Nifty automatically identifies unexcused absences and texts families the full picture — absence count, how many remain before an intervention, and a direct line to the school office. No app or login required.</p>
+            <div class="step-detail">
+              Automatic detection + instant outreach
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Nifty keeps parents engaged all year long</h3>
+            <p>Attendance outreach isn't just about problems. Nifty also sends streak updates, milestone celebrations, and encouragement — so families hear from the school on good days too, not just when something's wrong.</p>
+            <div class="step-detail">
+              Positive outreach, all year
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Attendance climbs — and funding follows</h3>
+            <p>As parents receive consistent, transparent updates about their child's attendance, unexcused absences drop — and your ADA funding reflects it. Nifty tracks attendance trends, funding recovered, and every outreach touchpoint so you can see exactly what's working and where to focus next.</p>
+            <div class="step-detail">
+              Real results, visible over time
+            </div>
+          </div>
+        </div>
+        <SmsCarousel id="0b304f07-dafa-450f-94ea-859853e71028" title="See Nifty Attendance&#8482; <span>in action</span>" />
+      </div>
+    </div>
+  </section>
+  </product>
+
+  <!-- TESTIMONIAL -->
+  <product id="8ef04ae1-a51f-4efb-91cf-b7c40520f19c">
+  <section class="section">
+    <div class="container">
+      <div class="section-header center">
+        <p class="eyebrow">What Schools Are Saying</p>
+        <h2 class="section-heading">The difference shows up fast.</h2>
+      </div>
+      <div class="testimonial-carousel" id="t-carousel">
+        <div class="testimonial-track" id="t-track">
+
+          <div class="testimonial-slide">
+            <div class="stars">★★★★★</div>
+            <blockquote>"We recovered nearly $40K in ADA funding last year that we would have just lost. Families are getting contacted before absences become a pattern, and our attendance numbers finally reflect how hard we're working to keep kids in school."</blockquote>
+            <div class="testimonial-author">
+              <div class="t-avatar" style="background:var(--brand-900)">DK</div>
+              <div><div class="t-name">Dr. David Kim</div><div class="t-role">Principal, Northgate Academy</div></div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Before Nifty, chronic absenteeism was eating into our ADA funding and we had no good way to catch it early. Now we're reaching families the same morning and our attendance rate has climbed every quarter since we started."</blockquote>
+            <div class="testimonial-author">
+              <div class="t-avatar" style="background:var(--green-700)">MR</div>
+              <div><div class="t-name">Maria R.</div><div class="t-role">Office Manager, Elmwood K–8</div></div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide">
+            <div class="stars">★★★★★</div>
+            <blockquote>"We used to lose thousands of dollars every year to absences we didn't even know were building up. Nifty gave us visibility we never had before — now we catch patterns early and our ADA numbers have never been stronger."</blockquote>
+            <div class="testimonial-author">
+              <div class="t-avatar" style="background:var(--accent)">LT</div>
+              <div><div class="t-name">Lisa Torres</div><div class="t-role">Assistant Principal, Crestview Charter</div></div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide">
+            <div class="stars">★★★★★</div>
+            <blockquote>"The moment we started using Nifty, parents became real partners in attendance. They could see exactly where their child stood, and that transparency made all the difference. Our chronic absenteeism rate dropped by nearly a third in one year."</blockquote>
+            <div class="testimonial-author">
+              <div class="t-avatar" style="background:var(--violet-500)">JW</div>
+              <div><div class="t-name">James Wheeler</div><div class="t-role">Principal, Riverside USD</div></div>
+            </div>
+          </div>
+
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-btn" id="t-prev">&#8592;</button>
+          <div class="carousel-dots" id="t-dots"></div>
+          <button class="carousel-btn" id="t-next">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  </product>
+
+  <!-- CTA -->
+  <product id="9e59d01c-a40f-43f9-92cf-3dd811d1b610">
+  <section class="cta-banner index-cta-banner">
+    <h2>See it in action — book a 30-minute demo.</h2>
+    <p>See how schools are recovering ADA funding and reducing chronic absenteeism with automated parent outreach. No sales pitch — just a live look at the product.</p>
+    <a href="/demo" class="btn-primary btn-white">Book a Demo →</a>
+  </section>
+  </product>
+
+  <Footer tagline="Tools that support your team, not replace them." />
+
+<script>
+  const track = document.getElementById('t-track');
+  const dotsContainer = document.getElementById('t-dots');
+  const slides = track.querySelectorAll('.testimonial-slide');
+  let current = 0;
+
+  // build dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  function goTo(n) {
+    current = (n + slides.length) % slides.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === current)
+    );
+  }
+
+  document.getElementById('t-prev').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('t-next').addEventListener('click', () => goTo(current + 1));
+
+  // swipe support
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+  });
+</script>
+</product>
+</body>
+</html>

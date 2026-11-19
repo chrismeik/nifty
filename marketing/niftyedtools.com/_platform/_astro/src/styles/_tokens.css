@@ -1,0 +1,71 @@
+:root {
+  /* ── BRAND (blue) ──────────────────────────────────────────── */
+  --brand-950:       #0f2462;
+  --brand-extra-dark:#172e6e;
+  --brand-900:       #1e3a8a;
+  --brand-800:       #1e40af;
+  --brand-700:       #1d4ed8;
+  --brand-600:       #2563eb;
+  --brand-500:       #3b82f6;
+  --brand-300:       #93c5fd;
+  --brand-200:       #bfdbfe;
+  --brand-100:       #dbeafe;
+  --brand-75:        #e0e7ff;
+  --brand-50:        #eff6ff;
+
+  /* ── SLATE / NEUTRALS ──────────────────────────────────────── */
+  --slate-950: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50:  #f8fafc;
+
+  /* ── AMBER ─────────────────────────────────────────────────── */
+  --amber-900: #92400e;
+  --amber-800: #854d0e;
+  --amber-400: #f59e0b;
+  --amber-100: #fef3c7;
+  --amber-50:  #fef9c3;
+
+  /* ── ORANGE ────────────────────────────────────────────────── */
+  --orange-600: #ea580c;
+  --orange-50:  #fff7ed;
+
+  /* ── ACCENT (design pop) ──────────────────────────────────── */
+  --accent:       #f97316;
+  --accent-hover: #ea580c;
+
+  /* ── GREEN ─────────────────────────────────────────────────── */
+  --green-800: #166534;
+  --green-700: #15803d;
+  --green-600: #16a34a;
+  --green-500b:#059669;
+  --green-500: #10b981;
+  --green-100: #dcfce7;
+  --green-50:  #f0fdf4;
+
+  /* ── RED ───────────────────────────────────────────────────── */
+  --red-600: #dc2626;
+  --red-500: #ef4444;
+  --red-100: #fee2e2;
+  --red-50:  #fef2f2;
+
+  /* ── ACCENTS (tool icons, team photos, avatar palette) ──────── */
+  --indigo-500:  #6366f1;
+  --violet-800:  #7c3aed;
+  --violet-500:  #8b5cf6;
+  --purple-600:  #9333ea;
+  --purple-400:  #a855f7;
+  --purple-50:   #fdf4ff;
+  --pink-500:    #ec4899;
+  --teal-500:    #14b8a6;
+  --cyan-600:    #0891b2;
+  --cyan-400:    #06b6d4;
+  --yellow-600:  #ca8a04;
+  --yellow-50:   #fefce8;
+}

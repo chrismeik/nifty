@@ -1,0 +1,92 @@
+---
+---
+<product id="b51d860f-9927-4a12-9cf2-668464845dbf">
+<header>
+  <div class="inner">
+    <product id="65c078c1-f83f-4b70-b7da-1102e73f0503">
+    <a href="/" class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+        <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+      </svg>
+      nifty
+    </a>
+    </product>
+    <div class="menu-wrap">
+      <product id="12c7531b-3321-4ced-8339-bddbb6aad4b3">
+      <button id="menu-btn" class="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      </product>
+      <product id="52af5fc1-4e4d-46d7-951a-2c3b0721250f">
+      <div id="dropdown" class="dropdown" hidden>
+        <nav id="menu-items">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/calculator">Calculator</a>
+        </nav>
+      </div>
+      </product>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn      = document.getElementById('menu-btn');
+  const dropdown = document.getElementById('dropdown');
+
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = !dropdown.hidden;
+    dropdown.hidden = open;
+    btn.setAttribute('aria-expanded', String(!open));
+  });
+
+  document.addEventListener('click', () => {
+    dropdown.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+  });
+
+  dropdown.addEventListener('click', e => e.stopPropagation());
+</script>
+
+<style is:global>
+  @import "../styles/_tokens.css";
+  header { background: var(--brand-900); color: white; padding: 0.75rem 1.5rem; }
+  .inner { display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }
+  .logo { display: flex; align-items: center; gap: 0.5rem; color: white; text-decoration: none; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.5px; }
+  .logo:visited { color: white; }
+
+  /* Hamburger button */
+  .menu-wrap { position: relative; }
+  .hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: white; border-radius: 2px; transition: opacity 0.2s; }
+  .hamburger:hover span { opacity: 0.75; }
+
+  /* Dropdown */
+  .dropdown {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    min-width: 180px;
+    overflow: hidden;
+    z-index: 100;
+  }
+#menu-items { display: flex; flex-direction: column; padding: 0.5rem 0; }
+  #menu-items a {
+    display: block;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--slate-700);
+    text-decoration: none;
+    transition: background 0.1s;
+  }
+  #menu-items a:link,
+  #menu-items a:visited { color: var(--slate-700); }
+  #menu-items a:hover { background: var(--slate-100); color: var(--brand-900); }
+  #menu-items hr { border: none; border-top: 1px solid var(--slate-100); margin: 0.4rem 0; }
+</style>
+</product>

@@ -1,0 +1,234 @@
+---
+import Layout from '../components/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ProductPageStyles from '../components/ProductPageStyles.astro';
+---
+<Layout
+  title="Book a Meeting — Nifty Attendance&#8482;"
+  description="Book a 30-minute product demo or schedule a deep-dive with an Attendance Specialist."
+>
+<product id="c86a991e-a2a9-4a63-ac9e-6fb938c3749d">
+  <style is:global>
+    @import "../styles/_tokens.css";
+
+    .demo-layout { padding: 2.5rem 2rem 5rem; }
+    .demo-inner {
+      max-width: 960px; margin: 0 auto;
+      display: grid; grid-template-columns: 3fr 2fr;
+      gap: 3rem; align-items: start;
+    }
+    @media (max-width: 700px) {
+      .demo-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .demo-card {
+      background: white; border: 1px solid var(--slate-200);
+      border-radius: 16px; padding: 2rem;
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+
+    /* Pill toggle */
+    .type-toggle {
+      display: flex; background: var(--slate-100);
+      border-radius: 10px; padding: 4px; gap: 4px;
+    }
+    .type-toggle button {
+      flex: 1; padding: 0.55rem 0.75rem;
+      border: none; border-radius: 7px; cursor: pointer;
+      font-size: 0.875rem; font-weight: 600;
+      color: var(--slate-500); background: transparent;
+      transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+      white-space: nowrap;
+    }
+    .type-toggle button.active {
+      background: white; color: var(--slate-900);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+    }
+
+    /* Description box */
+    .type-desc {
+      background: var(--slate-50); border-radius: 10px;
+      padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.3rem;
+    }
+    .type-desc-header {
+      display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+      margin-bottom: 0.25rem;
+    }
+    .type-desc-title {
+      font-size: 0.8rem; font-weight: 800; color: var(--slate-700);
+      letter-spacing: 0.02em; text-transform: uppercase;
+    }
+    .type-desc-badge {
+      display: inline-flex; align-items: center;
+      background: var(--accent); color: white;
+      font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem;
+      border-radius: 99px; flex-shrink: 0;
+    }
+    .type-desc-body { font-size: 0.875rem; color: var(--slate-600); line-height: 1.55; }
+
+    /* Book button */
+    .book-btn {
+      background: var(--accent); color: white;
+      border: none; border-radius: 8px; padding: 0.9rem 1.5rem;
+      font-size: 1rem; font-weight: 700; cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      box-shadow: 0 4px 14px rgba(249,115,22,0.3);
+      width: 100%;
+    }
+    .book-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+    .book-btn.hidden { display: none; }
+
+    /* Specialist pull-quote */
+    .specialist-pullquote {
+      display: flex; flex-direction: column; gap: 1.5rem;
+      padding-top: 2rem;
+    }
+    .pullquote-headline {
+      font-size: 1.75rem; font-weight: 900; line-height: 1.2; color: var(--slate-900);
+    }
+    .pullquote-headline em { font-style: normal; color: var(--accent); }
+    .pullquote-body { font-size: 0.925rem; color: var(--slate-600); line-height: 1.7; }
+    .pullquote-points {
+      display: flex; flex-direction: column; gap: 0.6rem;
+      list-style: none; padding: 0; margin: 0;
+    }
+    .pullquote-points li {
+      font-size: 0.875rem; color: var(--slate-700);
+      display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.4;
+    }
+    .pullquote-points li::before { content: '→'; color: var(--accent); font-weight: 800; flex-shrink: 0; }
+    .pullquote-switch-btn {
+      background: var(--accent); color: white;
+      border: none; border-radius: 8px; padding: 0.8rem 1.25rem;
+      font-size: 0.9rem; font-weight: 700; cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      box-shadow: 0 4px 14px rgba(249,115,22,0.3);
+      align-self: flex-start;
+    }
+    .pullquote-switch-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+  </style>
+
+  <ProductPageStyles />
+  <Nav />
+
+  <section class="page-hero">
+    <h1>Let's talk<br/><span>Nifty Attendance&#8482;</span></h1>
+    <p>Choose the conversation that fits your goals — a focused product demo or a deeper strategy session with an Attendance Specialist.</p>
+  </section>
+
+  <div class="demo-layout">
+    <div class="demo-inner">
+      <div class="demo-card">
+
+        <div class="type-toggle">
+          <button id="btn-demo" class="active" onclick="switchType('demo')">Product Demo</button>
+          <button id="btn-specialist" onclick="switchType('specialist')">Attendance Specialist</button>
+        </div>
+
+        <div class="type-desc">
+          <div class="type-desc-header">
+            <div class="type-desc-title" id="type-desc-title">Product Demo</div>
+            <span class="type-desc-badge" id="type-badge">30 min</span>
+          </div>
+          <div class="type-desc-body" id="type-desc-body">A guided walkthrough of Nifty Attendance™ — see exactly how absence detection works, how parents are notified and how you can start recovering ADA funding. Perfect if you want to see the product before committing any further.</div>
+        </div>
+
+        <button
+          id="book-demo-btn"
+          class="book-btn"
+          data-cal-link="niftyedtools/attendance-demo"
+          data-cal-namespace="demo"
+          data-cal-config='{"layout":"month_view"}'
+        >Book a Demo →</button>
+
+        <button
+          id="book-specialist-btn"
+          class="book-btn hidden"
+          data-cal-link="niftyedtools/attendance-specialist"
+          data-cal-namespace="specialist"
+          data-cal-config='{"layout":"month_view"}'
+        >Book a Specialist Session →</button>
+
+      </div>
+
+      <!-- Specialist pull-quote -->
+      <div class="specialist-pullquote">
+        <div class="pullquote-headline">Want to know exactly how much ADA funding your district is <em>leaving on the table?</em></div>
+        <div class="pullquote-body">Our Attendance Specialists don't just show you the product — they dig into your school's actual attendance picture. Every minute is tailored to your school/district.</div>
+        <ul class="pullquote-points">
+          <li>Custom ADA recovery projection for your school</li>
+          <li>1-hour deep dive into your attendance challenges</li>
+          <li>Includes a full product tour — in context of your district</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <Footer tagline="Ed tech built by educators, for educators. Never a replacement — always an amplifier." />
+
+</product>
+</Layout>
+
+<script is:inline>
+  const TYPES = {
+    demo: {
+      badge: '30 min',
+      title: 'Product Demo',
+      body:  'A guided walkthrough of Nifty Attendance™ — see exactly how absence detection works, how parents are notified and how you can start recovering ADA funding. Perfect if you want to see the product before committing any further.',
+    },
+    specialist: {
+      badge: '1 hour',
+      title: 'Attendance Specialist Session',
+      body:  'More than a demo — your Attendance Specialist will review your school\'s current attendance picture, walk through exactly how Nifty could reduce chronic absenteeism at your district, and give you a clear projection of recoverable ADA funding. They\'ll do their homework before the call so every minute is tailored to you.',
+    },
+  };
+
+  function switchType(type) {
+    const t = TYPES[type] || TYPES.demo;
+
+    document.getElementById('type-badge').textContent = t.badge;
+    document.getElementById('type-desc-title').textContent = t.title;
+    document.getElementById('type-desc-body').textContent = t.body;
+
+    document.getElementById('btn-demo').classList.toggle('active', type === 'demo');
+    document.getElementById('btn-specialist').classList.toggle('active', type === 'specialist');
+
+    document.getElementById('book-demo-btn').classList.toggle('hidden', type !== 'demo');
+    document.getElementById('book-specialist-btn').classList.toggle('hidden', type !== 'specialist');
+  }
+
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('type') === 'specialist') switchType('specialist');
+  })();
+</script>
+
+<!-- Cal.com embed -->
+<script is:inline>
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal; let ar = arguments;
+      if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+      if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; }
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+
+  Cal("init", "demo", { origin: "https://cal.com" });
+  Cal.ns.demo("ui", {
+    styles: { branding: { brandColor: "#f97316" } },
+    hideEventTypeDetails: false,
+    layout: "month_view",
+  });
+
+  Cal("init", "specialist", { origin: "https://cal.com" });
+  Cal.ns.specialist("ui", {
+    styles: { branding: { brandColor: "#f97316" } },
+    hideEventTypeDetails: false,
+    layout: "month_view",
+  });
+</script>

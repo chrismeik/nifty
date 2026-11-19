@@ -1,0 +1,9 @@
+{
+  "id": "7e8eb381-c4fb-480f-9890-b7ce02ca9220",
+  "name": "ops",
+  "type": "department",
+  "description": "Operations department",
+  "status": "active",
+  "parents": ["93997f5a-b389-462e-b910-892d76aba8ec"],
+  "children": []
+}
