@@ -9,7 +9,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
 
     steps:
       - name: Deploy to EC2
@@ -38,7 +38,7 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           envs: POSTGRES_USER,POSTGRES_PASSWORD,POSTGRES_DB,DATABASE_URL,REDIS_URL,REDIS_BROKER_URL,REDIS_CACHE_URL,ENABLE_WORKER_METRICS,WORKER_METRICS_PORT,NEO4J_URI,NEO4J_USER,NEO4J_PASSWORD,ANTHROPIC_API_KEY,OPENAI_API_KEY,AWS_ACCOUNT_ID,AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY,EC2_HOST
-          timeout: 10m
+          timeout: 20m
           script: |
             set -euo pipefail
             ENV_FILE=~/veratree/root/_root/platform/_compose/.env
