@@ -1,0 +1,9 @@
+{
+  "id": "d9c00671-ae50-4389-870a-bc19fee63f69",
+  "name": "_root/_app/_prometheus",
+  "type": "system",
+  "description": "Metrics and observability — Prometheus instrumentation for API and worker",
+  "status": "active",
+  "parents": ["8540f7ed-5de1-4b52-b941-c10617c3661a"],
+  "children": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "81413555-c89c-49eb-81b3-a02375b7cdf2",
+  "name": "_root/_app/_fastapi",
+  "type": "system",
+  "description": "FastAPI app factory — middleware, rate limiting, deps, schemas, entrypoint",
+  "status": "active",
+  "parents": ["8540f7ed-5de1-4b52-b941-c10617c3661a"],
+  "children": []
+}

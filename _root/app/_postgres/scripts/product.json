@@ -1,9 +1,0 @@
-{
-  "id": "8a8a3cd8-984c-42c7-af65-68f40e6f6756",
-  "name": "_root/app/_postgres/scripts",
-  "type": "system",
-  "description": "Database maintenance scripts — pruning, cleanup, and one-off admin operations",
-  "status": "active",
-  "parents": ["ff7689f1-5ae7-43c0-96fe-3784db4db612"],
-  "children": []
-}

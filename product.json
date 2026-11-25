@@ -1,9 +1,0 @@
-{
-  "id": "93997f5a-b389-462e-b910-892d76aba8ec",
-  "name": "root",
-  "type": "system",
-  "description": "Root system product — initializes core infrastructure",
-  "status": "active",
-  "parents": [],
-  "children": ["e0569660-673a-4d47-ba9d-7603cf126156"]
-}

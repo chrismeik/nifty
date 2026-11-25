@@ -1,9 +1,0 @@
-{
-  "id": "539639ef-bb36-4a58-b840-341ef46304f4",
-  "name": "_root/app/_dramatiq",
-  "type": "system",
-  "description": "Background task queue — Dramatiq broker, tasks, DLQ, idempotency, metrics",
-  "status": "active",
-  "parents": ["8540f7ed-5de1-4b52-b941-c10617c3661a"],
-  "children": []
-}

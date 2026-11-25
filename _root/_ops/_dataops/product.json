@@ -1,0 +1,11 @@
+{
+  "id": "518fcd32-1dcd-4ba2-b721-b2377d7e81d4",
+  "name": "_root/_ops/_dataops",
+  "type": "system",
+  "description": "Runtime data operations — run inside the stack (worker, startup), not from the host",
+  "status": "active",
+  "parents": ["f57a8744-b52e-4600-a478-d71396f5c7a8"],
+  "children": [
+    "3ca27ea2-cc81-4fda-ad0d-0ff3da30bb6d"
+  ]
+}

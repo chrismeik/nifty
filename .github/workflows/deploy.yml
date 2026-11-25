@@ -41,7 +41,11 @@ jobs:
           timeout: 20m
           script: |
             set -euo pipefail
-            ENV_FILE=~/veratree/root/_root/platform/_compose/.env
+            # Pull latest code first so the _root/_platform/_compose folder exists
+            cd ~/veratree/root
+            git pull origin main
+
+            ENV_FILE=~/veratree/root/_root/_platform/_compose/.env
 
             # Write .env from secrets passed as env vars
             printf "UID=1000\n" > "$ENV_FILE"
@@ -64,12 +68,13 @@ jobs:
             printf "AWS_ACCOUNT_ID=%s\n" "$AWS_ACCOUNT_ID" >> "$ENV_FILE"
             printf "AWS_ACCESS_KEY_ID=%s\n" "$AWS_ACCESS_KEY_ID" >> "$ENV_FILE"
             printf "AWS_SECRET_ACCESS_KEY=%s\n" "$AWS_SECRET_ACCESS_KEY" >> "$ENV_FILE"
+            printf "AWS_REGION=us-east-1\n" >> "$ENV_FILE"
+            printf "S3_COPY_ENABLED=false\n" >> "$ENV_FILE"
+            printf "S3_COPY_BUCKET=veratree-nifty-prod\n" >> "$ENV_FILE"
+            printf "S3_COPY_PREFIX=\n" >> "$ENV_FILE"
             printf "VERATREE_SERVER_IP=%s\n" "$EC2_HOST" >> "$ENV_FILE"
 
-            # Pull latest code
-            cd ~/veratree/root
-            git pull origin main
-
-            # Deploy
-            VERATREE_ENV=production bash _root/platform/up.sh up -d --build 2>&1 | tail -20
-            bash _root/platform/up.sh exec nginx nginx -s reload
+            # Deploy (prod lane: up.sh picks up compose.prod.yml / nginx.prod.conf)
+            export ENVIRONMENT=prod
+            bash _root/_platform/up.sh up -d --build 2>&1 | tail -20
+            bash _root/_platform/up.sh exec nginx nginx -s reload

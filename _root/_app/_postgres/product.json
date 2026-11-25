@@ -1,0 +1,12 @@
+{
+  "id": "ff7689f1-5ae7-43c0-96fe-3784db4db612",
+  "name": "_root/_app/_postgres",
+  "type": "system",
+  "description": "Database layer — SQLAlchemy engine, models, Alembic migrations, bootstrap, maintenance",
+  "status": "active",
+  "parents": ["8540f7ed-5de1-4b52-b941-c10617c3661a"],
+  "children": [
+    "b4a78dbb-43c1-4dfc-aa67-ff80a3a2ebe6",
+    "8a8a3cd8-984c-42c7-af65-68f40e6f6756"
+  ]
+}

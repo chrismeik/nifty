@@ -1,9 +1,0 @@
-{
-  "id": "3a0880b8-3760-4dcf-8967-e6a801f8ce22",
-  "name": "_root/platform/_compose",
-  "type": "system",
-  "description": "Docker Compose configuration — service definitions, env vars, volume mounts",
-  "status": "active",
-  "parents": ["4055b911-25b3-4f0d-880c-b542b543c2e0"],
-  "children": []
-}

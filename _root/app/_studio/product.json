@@ -1,9 +1,0 @@
-{
-  "id": "d894ad50-f4a7-4553-ae12-acfc300e72a5",
-  "name": "_root/app/_studio",
-  "type": "system",
-  "description": "Built-in AI chat interface — connects to Claude and OpenAI, served at /studio",
-  "status": "active",
-  "parents": ["8540f7ed-5de1-4b52-b941-c10617c3661a"],
-  "children": []
-}

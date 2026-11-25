@@ -1,0 +1,11 @@
+{
+  "id": "f57a8744-b52e-4600-a478-d71396f5c7a8",
+  "name": "_root/_ops",
+  "type": "system",
+  "description": "Operations — runtime data operations (_dataops) and host-side utilities",
+  "status": "active",
+  "parents": ["e0569660-673a-4d47-ba9d-7603cf126156"],
+  "children": [
+    "518fcd32-1dcd-4ba2-b721-b2377d7e81d4"
+  ]
+}

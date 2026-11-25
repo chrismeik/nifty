@@ -1,9 +1,0 @@
-{
-  "id": "f205dd15-1e63-4564-8230-979cec4ad614",
-  "name": "_root/app/_jobs",
-  "type": "system",
-  "description": "Job lifecycle tracking — create, complete, fail, and query background jobs",
-  "status": "active",
-  "parents": ["8540f7ed-5de1-4b52-b941-c10617c3661a"],
-  "children": []
-}

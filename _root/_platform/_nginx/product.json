@@ -1,0 +1,9 @@
+{
+  "id": "c165dd28-34af-4d66-8378-85e47eb443fb",
+  "name": "_root/_platform/_nginx",
+  "type": "system",
+  "description": "Nginx reverse proxy — routing rules for API and per-product Astro frontends",
+  "status": "active",
+  "parents": ["4055b911-25b3-4f0d-880c-b542b543c2e0"],
+  "children": []
+}

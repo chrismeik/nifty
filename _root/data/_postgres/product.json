@@ -1,9 +1,0 @@
-{
-  "id": "5304466b-170f-4d98-8ded-8e4f2e5b1900",
-  "name": "_root/data/_postgres",
-  "type": "system",
-  "description": "System SQL — platform-level init.sql and seed data run at bootstrap",
-  "status": "active",
-  "parents": ["2d07f5be-88b1-45e0-aaab-bb6af7d673c8"],
-  "children": []
-}

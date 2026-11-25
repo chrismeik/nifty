@@ -1,0 +1,9 @@
+{
+  "id": "84aa7c46-eb5a-4060-a791-e1145de24e9d",
+  "name": "_root/_app/_graphiti",
+  "type": "system",
+  "description": "Graph database client — Neo4j driver and Graphiti interface for product graph queries",
+  "status": "active",
+  "parents": ["8540f7ed-5de1-4b52-b941-c10617c3661a"],
+  "children": []
+}

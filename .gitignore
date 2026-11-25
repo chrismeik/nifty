@@ -20,6 +20,7 @@ dist/
 ###########################
 .env
 .env.*
+!.env.example
 # .env.example files ARE committed (they're templates)
 
 ###########################

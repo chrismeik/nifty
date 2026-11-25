@@ -1,9 +1,0 @@
-{
-  "id": "564fa18f-f39e-42ec-9a5a-559beb67c3bb",
-  "name": "_root/app/_postgres/alembic/versions",
-  "type": "system",
-  "description": "Migration version files — ordered DDL changes applied by Alembic at startup",
-  "status": "active",
-  "parents": ["b4a78dbb-43c1-4dfc-aa67-ff80a3a2ebe6"],
-  "children": []
-}

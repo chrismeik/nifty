@@ -1,0 +1,9 @@
+{
+  "id": "3ca27ea2-cc81-4fda-ad0d-0ff3da30bb6d",
+  "name": "_root/_ops/_dataops/_s3_copy",
+  "type": "system",
+  "description": "Copies files ETL writes into the containers to S3, right after each write",
+  "status": "active",
+  "parents": ["518fcd32-1dcd-4ba2-b721-b2377d7e81d4"],
+  "children": []
+}

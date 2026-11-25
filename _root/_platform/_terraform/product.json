@@ -1,0 +1,9 @@
+{
+  "id": "5319539b-c7cd-47e9-93d2-228ab1e864ae",
+  "name": "_root/_platform/_terraform",
+  "type": "system",
+  "description": "Infrastructure as code — the lane's S3 bucket (data + Terraform state), adopted via import blocks",
+  "status": "active",
+  "parents": ["4055b911-25b3-4f0d-880c-b542b543c2e0"],
+  "children": []
+}

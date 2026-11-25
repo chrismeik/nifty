@@ -1,0 +1,17 @@
+###########################
+# PYTHON CACHE
+###########################
+__pycache__/
+*.pyc
+
+###########################
+# LOCAL UTILS (one-off scripts, not committed)
+###########################
+_ops/utils/
+
+###########################
+# TERRAFORM (state lives in S3; lock file IS committed)
+###########################
+_platform/_terraform/.terraform/
+*.tfstate
+*.tfstate.*

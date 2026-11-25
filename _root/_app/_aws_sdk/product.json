@@ -1,0 +1,9 @@
+{
+  "id": "2dfc03ac-dcf4-4eed-9efe-236050cb04a8",
+  "name": "_root/_app/_aws_sdk",
+  "type": "system",
+  "description": "Shared AWS client layer — cached boto3 session/clients and S3 helpers",
+  "status": "active",
+  "parents": ["8540f7ed-5de1-4b52-b941-c10617c3661a"],
+  "children": []
+}

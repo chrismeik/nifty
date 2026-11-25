@@ -1,9 +1,0 @@
-{
-  "id": "f57a8744-b52e-4600-a478-d71396f5c7a8",
-  "name": "_root/ops",
-  "type": "system",
-  "description": "Deployment operations — rsync-based sync to EC2 and remote container management",
-  "status": "active",
-  "parents": ["e0569660-673a-4d47-ba9d-7603cf126156"],
-  "children": []
-}
