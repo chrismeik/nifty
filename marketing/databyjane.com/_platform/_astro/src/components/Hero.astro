@@ -1,0 +1,51 @@
+---
+// <product id="54fa5918-5f9b-400a-aa25-bf2825061d52">
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <!-- TODO(placeholder): confirm tagline with Jane -->
+      <p class="eyebrow">Data by Jane</p>
+      <h1 id="hero-title">Jane Meik</h1>
+      <p class="tagline">Part-time data help for school districts</p>
+      <p class="intro">
+        Hi, my name is Jane. I've spent years helping schools make sense of their
+        data, and now I help smaller districts do the same, a few hours a week.
+      </p>
+      <a class="btn-soft" href="#contact">Let's talk about your data</a>
+    </div>
+    <div class="hero-photo">
+      <!-- TODO(placeholder): replace with a real photo of Jane -->
+      <img
+        src="/images/jane-placeholder.svg"
+        alt="Placeholder for a photo of Jane Meik"
+        width="320" height="320"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero { background: linear-gradient(180deg, var(--brand-50) 0%, var(--cream) 100%); padding: 5rem 0 4rem; }
+  .hero-inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: center; }
+  @media (max-width: 760px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-photo { order: -1; }
+  }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.1; color: var(--brand-900); }
+  .tagline { font-size: 1.3rem; color: var(--brand-700); margin: 0.5rem 0 1.25rem; }
+  .intro { color: var(--ink-700); max-width: 32rem; margin-bottom: 2rem; }
+  .btn-soft {
+    display: inline-block; text-decoration: none; font-weight: 600;
+    color: var(--brand-900); background: white;
+    border: 1.5px solid var(--brand-500); border-radius: 999px;
+    padding: 0.7rem 1.5rem; transition: background 0.15s;
+  }
+  .btn-soft:hover { background: var(--brand-100); }
+  .hero-photo img {
+    width: 100%; max-width: 320px; height: auto; margin: 0 auto;
+    border-radius: 50%; border: 6px solid white;
+    box-shadow: 0 10px 30px rgba(31, 63, 67, 0.12);
+  }
+</style>
+<!-- </product> -->

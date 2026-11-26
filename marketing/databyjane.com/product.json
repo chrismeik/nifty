@@ -1,0 +1,70 @@
+{
+  "id": "3912421f-f68d-4a0a-90f8-d2fb88d738bc",
+  "name": "databyjane.com",
+  "type": "product",
+  "description": "Data by Jane marketing site — one-page landing page for Jane Meik's part-time data help for school districts",
+  "status": "draft",
+  "parents": ["b03f2494-2f14-449e-97a4-7971c81527b8"],
+  "children": [
+    {
+      "id": "56ee1e87-f712-4a3e-9989-372f8e483e11",
+      "name": "index",
+      "type": "webpage",
+      "description": "One-page landing page",
+      "parents": ["3912421f-f68d-4a0a-90f8-d2fb88d738bc"],
+      "children": [
+        {
+          "id": "54fa5918-5f9b-400a-aa25-bf2825061d52",
+          "name": "index-hero",
+          "type": "component",
+          "description": "Name, tagline, photo, and soft CTA to #contact",
+          "parents": ["56ee1e87-f712-4a3e-9989-372f8e483e11"],
+          "children": []
+        },
+        {
+          "id": "bda8b490-e955-40eb-96b0-e7f1b2e3606d",
+          "name": "index-part-time",
+          "type": "component",
+          "description": "Part-time data help (5 to 20 hours a week) for districts without a full-time data specialist",
+          "parents": ["56ee1e87-f712-4a3e-9989-372f8e483e11"],
+          "children": []
+        },
+        {
+          "id": "978ffe15-85f7-416e-ad91-aeb0d2223c90",
+          "name": "index-problems",
+          "type": "component",
+          "description": "Grid of common district data and reporting problems",
+          "parents": ["56ee1e87-f712-4a3e-9989-372f8e483e11"],
+          "dependencies": ["4f1f25e2-da6d-4095-9826-e538b5645fbe"],
+          "children": []
+        },
+        {
+          "id": "7cb6f15e-5e22-47fb-a859-b35914fd9890",
+          "name": "index-experience",
+          "type": "component",
+          "description": "Jane's experience, one item per common problem",
+          "parents": ["56ee1e87-f712-4a3e-9989-372f8e483e11"],
+          "dependencies": ["4f1f25e2-da6d-4095-9826-e538b5645fbe"],
+          "children": []
+        },
+        {
+          "id": "cc7ecefd-69aa-4314-8c0e-94953e9bb8ef",
+          "name": "index-contact",
+          "type": "component",
+          "description": "Email and phone links with a friendly invitation to reach out",
+          "parents": ["56ee1e87-f712-4a3e-9989-372f8e483e11"],
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "4f1f25e2-da6d-4095-9826-e538b5645fbe",
+      "name": "problems-data",
+      "type": "data",
+      "description": "src/data/problems.ts — shared list of problems and matching experience",
+      "parents": ["3912421f-f68d-4a0a-90f8-d2fb88d738bc"],
+      "children": []
+    }
+  ],
+  "capabilities": {}
+}

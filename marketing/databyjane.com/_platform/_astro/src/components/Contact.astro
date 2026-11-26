@@ -1,0 +1,51 @@
+---
+// <product id="cc7ecefd-69aa-4314-8c0e-94953e9bb8ef">
+const email = 'janemeik06@gmail.com';
+const phoneDisplay = '385-384-0676';
+const phoneHref = '+13853840676';
+---
+<section id="contact" class="contact" aria-labelledby="contact-title">
+  <div class="container contact-inner">
+    <p class="eyebrow">Contact</p>
+    <h2 id="contact-title">Let's talk</h2>
+    <p class="lead">
+      Whether it's one stubborn report or a whole school year of help, I'd love
+      to hear what your district is working on. No pressure, just a conversation.
+    </p>
+    <ul class="ways">
+      <li>
+        <span class="label">Email</span>
+        <a href={`mailto:${email}`}>{email}</a>
+      </li>
+      <li>
+        <span class="label">Phone</span>
+        <a href={`tel:${phoneHref}`}>{phoneDisplay}</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">© {new Date().getFullYear()} Data by Jane</div>
+</footer>
+
+<style>
+  .contact { background: var(--brand-900); color: white; text-align: center; }
+  .contact-inner { display: flex; flex-direction: column; align-items: center; }
+  .contact .eyebrow { color: var(--accent); }
+  .contact h2 { color: white; }
+  .contact .lead { color: rgba(255, 255, 255, 0.85); }
+  .ways {
+    list-style: none; margin-top: 2rem;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
+  }
+  .ways li {
+    background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius); padding: 1rem 1.5rem; min-width: 240px;
+    display: flex; flex-direction: column; gap: 0.25rem;
+  }
+  .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255, 255, 255, 0.7); }
+  .ways a { color: white; font-weight: 600; font-size: 1.1rem; word-break: break-word; }
+  .footer { background: var(--brand-900); color: rgba(255, 255, 255, 0.6); font-size: 0.85rem; text-align: center; padding: 1.5rem 0; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+</style>
+<!-- </product> -->

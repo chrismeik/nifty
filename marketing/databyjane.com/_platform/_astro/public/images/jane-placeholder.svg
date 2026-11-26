@@ -1,0 +1,6 @@
+<!-- PLACEHOLDER: replace with a real photo of Jane (e.g. public/images/jane.jpg) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Placeholder portrait">
+  <rect width="400" height="400" fill="#e7efe9"/>
+  <circle cx="200" cy="160" r="70" fill="#b9cec2"/>
+  <path d="M70 400c0-80 58-140 130-140s130 60 130 140z" fill="#b9cec2"/>
+</svg>

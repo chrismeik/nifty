@@ -1,0 +1,50 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  {description && <meta name="description" content={description} />}
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <style is:global>
+    @import "../styles/_tokens.css";
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--cream); color: var(--ink-900);
+      line-height: 1.6; font-size: 1.0625rem;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--brand-700); }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 4.5rem 0; scroll-margin-top: 1rem; }
+    .eyebrow {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent-dark); margin-bottom: 0.5rem;
+    }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); line-height: 1.2; color: var(--brand-900); margin-bottom: 1rem; }
+    .lead { color: var(--ink-700); max-width: 42rem; }
+
+    .skip-link {
+      position: absolute; left: -9999px; top: 0.5rem;
+      background: var(--brand-900); color: white; padding: 0.5rem 1rem; border-radius: 6px;
+    }
+    .skip-link:focus { left: 0.5rem; }
+  </style>
+  <slot name="head" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <slot />
+</body>
+</html>

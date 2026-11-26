@@ -1,0 +1,41 @@
+---
+// <product id="7cb6f15e-5e22-47fb-a859-b35914fd9890">
+import { problems } from '../data/problems';
+---
+<section class="experience" aria-labelledby="experience-title">
+  <div class="container">
+    <!-- TODO(placeholder): every item's text comes from src/data/problems.ts and is placeholder -->
+    <p class="eyebrow">Experience</p>
+    <h2 id="experience-title">I've worked on each of these</h2>
+    <p class="lead">
+      PLACEHOLDER: a sentence or two about Jane's background in school data.
+    </p>
+    <ol class="list">
+      {problems.map((p, i) => (
+        <li>
+          <span class="num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <div>
+            <h3><a href={`#problem-${p.id}`}>{p.title}</a></h3>
+            <p>{p.experience}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .experience { background: white; }
+  .list { list-style: none; margin-top: 2rem; display: grid; gap: 1rem; }
+  .list li {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.25rem; align-items: start;
+    padding: 1.25rem 1.5rem; border-left: 4px solid var(--brand-100);
+    background: var(--brand-50); border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .num { font-size: 0.85rem; font-weight: 700; color: var(--accent-dark); padding-top: 0.15rem; }
+  h3 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+  h3 a { color: var(--brand-900); text-decoration: none; }
+  h3 a:hover { text-decoration: underline; }
+  p { color: var(--ink-700); font-size: 0.97rem; }
+</style>
+<!-- </product> -->
